@@ -186,6 +186,95 @@
       "deleted": "Account deleted."
     }
   },
+  "Members": {
+    "title": "Team members",
+    "subtitle": "Invite teammates and manage their access.",
+    "memberCount": "{count, plural, =0 {No members} =1 {1 member} other {# members}}",
+    "inviteButton": "Invite member",
+    "filter": {
+      "all": "All",
+      "owner": "Owners",
+      "admin": "Admins",
+      "manager": "Managers",
+      "member": "Members"
+    },
+    "table": {
+      "name": "Name",
+      "role": "Role",
+      "joined": "Joined",
+      "lastActive": "Last active",
+      "actions": "Actions",
+      "you": "You",
+      "noResults": "No members match your filter."
+    },
+    "role": {
+      "owner": "Owner",
+      "admin": "Admin",
+      "manager": "Manager",
+      "member": "Member",
+      "ownerHint": "Full control. Billing and ownership transfer.",
+      "adminHint": "Manage members, settings, and all data.",
+      "managerHint": "Full access to clients, projects, tasks. Finance is read-only.",
+      "memberHint": "Sees only assigned projects and tasks. No finance."
+    },
+    "actions": {
+      "changeRole": "Change role",
+      "remove": "Remove from workspace",
+      "removeConfirmTitle": "Remove {name}?",
+      "removeConfirmBody": "They'll lose access immediately. Their projects and contributions stay in the workspace.",
+      "removeAction": "Remove member",
+      "cancel": "Cancel",
+      "removed": "Member removed.",
+      "roleChanged": "Role updated.",
+      "transferOwner": "Transfer ownership",
+      "ownerOnlyAction": "Only the owner can do this."
+    },
+    "errors": {
+      "selfRemove": "You can't remove yourself.",
+      "ownerRemove": "The owner can't be removed. Transfer ownership first.",
+      "selfDemote": "You can't change your own role here.",
+      "promoteToAdmin": "Only the owner can promote someone to Admin."
+    },
+    "invitations": {
+      "title": "Pending invitations",
+      "empty": "No pending invitations.",
+      "table": {
+        "email": "Email",
+        "role": "Role",
+        "sent": "Sent",
+        "expires": "Expires",
+        "actions": "Actions"
+      },
+      "expired": "expired",
+      "expiresIn": "in {value}",
+      "actions": {
+        "copyLink": "Copy invitation link",
+        "resend": "Refresh expiry",
+        "revoke": "Revoke invitation",
+        "linkCopied": "Invitation link copied.",
+        "resent": "Invitation refreshed.",
+        "revoked": "Invitation revoked.",
+        "revokeConfirmTitle": "Revoke this invitation?",
+        "revokeConfirmBody": "The link for {email} will stop working. You can send a new invite anytime.",
+        "revokeAction": "Revoke"
+      }
+    },
+    "invite": {
+      "title": "Invite a teammate",
+      "subtitle": "They'll get a single-use link to join the workspace.",
+      "fieldEmail": "Email",
+      "fieldRole": "Role",
+      "send": "Generate invitation",
+      "sending": "Generating…",
+      "duplicate": "{email} is already a member.",
+      "alreadyInvited": "An invitation for {email} is already pending.",
+      "linkReady": "Invitation ready",
+      "linkReadyHint": "Send this link to {email}. It expires in 7 days.",
+      "copy": "Copy link",
+      "copied": "Copied",
+      "done": "Done"
+    }
+  },
   "Errors": {
     "unauthorized": "You don't have access to this workspace.",
     "notFound": "We couldn't find what you were looking for.",

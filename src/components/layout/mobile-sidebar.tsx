@@ -17,6 +17,7 @@ import { cn } from "@/lib/utils";
 import { useAppShell } from "./app-shell-context";
 import { BRAND_ICON, NAV_GROUPS, type NavItem } from "./nav-config";
 import { LogOut } from "lucide-react";
+import type { OrgRole } from "@/lib/db/models/org-member";
 
 /**
  * Mobile / tablet sidebar — same nav-config as the desktop sidebar but slides
@@ -116,7 +117,7 @@ function MobileItem({
   onNavigate: () => void;
   label: string;
   readOnlyLabel: string;
-  role: import("@/lib/db/models/org-member").OrgRole;
+  role: OrgRole;
 }) {
   const isActive =
     pathname === item.href || pathname.startsWith(`${item.href}/`);

@@ -145,9 +145,11 @@ export function AppSidebar() {
   );
 }
 
+import type { OrgRole } from "@/lib/db/models/org-member";
+
 interface SidebarItemProps {
   item: NavItem;
-  role: import("@/lib/db/models/org-member").OrgRole;
+  role: OrgRole;
   pathname: string;
   collapsed: boolean;
   label: string;

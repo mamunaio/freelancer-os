@@ -1,7 +1,7 @@
 import { setRequestLocale } from "next-intl/server";
 
 import { connectMongoose } from "@/lib/db/client";
-import { OrgMember, User } from "@/lib/db/models";
+import { User } from "@/lib/db/models";
 import { requireOrgContext } from "@/lib/auth/session";
 import { ProfileForm } from "@/components/settings/profile-form";
 import { PasswordForm } from "@/components/settings/password-form";

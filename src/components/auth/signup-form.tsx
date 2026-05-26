@@ -14,9 +14,14 @@ import { SubmitButton } from "./submit-button";
 
 interface Props {
   locale: Locale;
+  /** Pre-filled fields when arriving from an invitation link. */
+  invite?: {
+    token: string;
+    email: string;
+  };
 }
 
-export function SignupForm({ locale }: Props) {
+export function SignupForm({ locale, invite }: Props) {
   const t = useTranslations("Auth");
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
@@ -25,12 +30,26 @@ export function SignupForm({ locale }: Props) {
   function onSubmit(formData: FormData) {
     setError(null);
     startTransition(async () => {
+      const formEmail = String(formData.get("email") ?? "");
+      const formPassword = String(formData.get("password") ?? "");
+      const formName = String(formData.get("name") ?? "");
+      const formOrg = String(formData.get("organizationName") ?? "");
+
+      // When joining via an invitation, we don't create a new org — the user
+      // becomes a member of the inviting org instead. We still need *some*
+      // value for organizationName because the action accepts both flows
+      // through the same schema; we feed a placeholder that the server-side
+      // invitation flow ignores.
+      const isInviteFlow = Boolean(invite);
+
       const result = await signupAction({
-        name: String(formData.get("name") ?? ""),
-        email: String(formData.get("email") ?? ""),
-        password: String(formData.get("password") ?? ""),
-        organizationName: String(formData.get("organizationName") ?? ""),
+        name: formName,
+        email: isInviteFlow ? invite!.email : formEmail,
+        password: formPassword,
+        organizationName: isInviteFlow ? "_invited_" : formOrg,
         locale,
+        // Pass the invite token so the action knows to skip org creation.
+        inviteToken: invite?.token,
       });
 
       if (!result.ok) {
@@ -38,10 +57,10 @@ export function SignupForm({ locale }: Props) {
         return;
       }
 
-      // Auto sign in after successful signup.
+      // Auto sign in.
       const signInResult = await signIn("credentials", {
-        email: String(formData.get("email") ?? ""),
-        password: String(formData.get("password") ?? ""),
+        email: isInviteFlow ? invite!.email : formEmail,
+        password: formPassword,
         redirect: false,
       });
 
@@ -67,20 +86,24 @@ export function SignupForm({ locale }: Props) {
         required
         minLength={2}
       />
-      <TextInput
-        name="organizationName"
-        label={t("organization")}
-        placeholder="Acme Studio"
-        autoComplete="organization"
-        required
-        minLength={2}
-      />
+      {!invite && (
+        <TextInput
+          name="organizationName"
+          label={t("organization")}
+          placeholder="Acme Studio"
+          autoComplete="organization"
+          required
+          minLength={2}
+        />
+      )}
       <TextInput
         name="email"
         type="email"
         label={t("email")}
         placeholder="you@studio.com"
         autoComplete="email"
+        defaultValue={invite?.email}
+        readOnly={Boolean(invite)}
         required
       />
       <PasswordInput

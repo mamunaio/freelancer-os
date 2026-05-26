@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import { z } from "zod";
 import bcrypt from "bcryptjs";
 import { customAlphabet } from "nanoid";
+import type { Types } from "mongoose";
 
 import { connectMongoose } from "@/lib/db/client";
 import {
@@ -14,6 +15,8 @@ import {
 } from "@/lib/db/models";
 import { signIn } from "@/lib/auth/config";
 import { getSession } from "@/lib/auth/session";
+
+type PendingObjectId = Types.ObjectId;
 
 /**
  * Server actions for the auth + onboarding surface.
@@ -69,6 +72,8 @@ const signupSchema = z.object({
     .min(2, "Organization name is required")
     .max(80),
   locale: z.enum(["en", "bn"]).default("en"),
+  /** When present, the new user joins this invitation's org instead of creating a fresh one. */
+  inviteToken: z.string().optional(),
 });
 
 export type SignupInput = z.infer<typeof signupSchema>;
@@ -80,7 +85,7 @@ export async function signupAction(input: SignupInput): Promise<ActionResult> {
     return { ok: false, error: parsed.error.issues[0]?.message ?? "Invalid input" };
   }
 
-  const { name, email, password, organizationName, locale } = parsed.data;
+  const { name, email, password, organizationName, locale, inviteToken } = parsed.data;
 
   await connectMongoose();
 
@@ -88,6 +93,45 @@ export async function signupAction(input: SignupInput): Promise<ActionResult> {
   const existing = await User.findOne({ email }).select("_id").lean();
   if (existing) {
     return { ok: false, error: "An account with this email already exists." };
+  }
+
+  // ─── Invitation flow ───────────────────────────────────────────────
+  // The new user joins an existing org as the role spelled out on the
+  // invitation. Validate the invitation up front so we don't create a User
+  // and then bail.
+  let pendingInvite:
+    | {
+        _id: PendingObjectId;
+        organizationId: PendingObjectId;
+        role: string;
+        email: string;
+      }
+    | null = null;
+
+  if (inviteToken) {
+    const invite = await Invitation.findOne({
+      token: inviteToken,
+      status: "pending",
+    }).lean();
+
+    if (!invite) {
+      return { ok: false, error: "Invitation isn't valid anymore." };
+    }
+    if (invite.expiresAt < new Date()) {
+      return { ok: false, error: "Invitation has expired." };
+    }
+    if (invite.email.toLowerCase() !== email.toLowerCase()) {
+      return {
+        ok: false,
+        error: `This invitation is for ${invite.email}.`,
+      };
+    }
+    pendingInvite = {
+      _id: invite._id,
+      organizationId: invite.organizationId,
+      role: invite.role as string,
+      email: invite.email,
+    };
   }
 
   const passwordHash = await bcrypt.hash(password, 12);
@@ -101,22 +145,41 @@ export async function signupAction(input: SignupInput): Promise<ActionResult> {
     authProviders: [{ provider: "credentials", providerAccountId: email }],
   });
 
-  const slug = await uniqueOrgSlug(organizationName);
+  if (pendingInvite) {
+    // Join the existing org and consume the invitation.
+    await OrgMember.create({
+      organizationId: pendingInvite.organizationId,
+      userId: user._id,
+      role: pendingInvite.role,
+      status: "active",
+    });
+    await Invitation.updateOne(
+      { _id: pendingInvite._id },
+      { status: "accepted", acceptedAt: new Date() },
+    );
+    await User.updateOne(
+      { _id: user._id },
+      { activeOrgId: pendingInvite.organizationId },
+    );
+  } else {
+    // Standard owner-creating-org flow.
+    const slug = await uniqueOrgSlug(organizationName);
 
-  const org = await Organization.create({
-    name: organizationName,
-    slug,
-    ownerId: user._id,
-  });
+    const org = await Organization.create({
+      name: organizationName,
+      slug,
+      ownerId: user._id,
+    });
 
-  await OrgMember.create({
-    organizationId: org._id,
-    userId: user._id,
-    role: "owner",
-    status: "active",
-  });
+    await OrgMember.create({
+      organizationId: org._id,
+      userId: user._id,
+      role: "owner",
+      status: "active",
+    });
 
-  await User.updateOne({ _id: user._id }, { activeOrgId: org._id });
+    await User.updateOne({ _id: user._id }, { activeOrgId: org._id });
+  }
 
   return { ok: true };
 }
