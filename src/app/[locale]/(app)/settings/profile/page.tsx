@@ -11,14 +11,14 @@ export default async function SettingsProfilePage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations({ locale, namespace: "Header" });
+  const t = await getTranslations({ locale, namespace: "Settings.tabs" });
   return (
     <StubPage
       locale={locale}
       title={t("profile")}
-      eyebrow={t("settings")}
+      eyebrow="Settings"
       icon={UserIcon}
-      phase="Phase 4"
+      phase="Phase 4b"
     />
   );
 }

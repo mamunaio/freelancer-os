@@ -68,6 +68,50 @@
     "viewRoadmap": "View roadmap",
     "backToDashboard": "Back to dashboard"
   },
+  "Settings": {
+    "title": "Settings",
+    "subtitle": "Workspace, profile, and team controls.",
+    "tabs": {
+      "workspace": "Workspace",
+      "profile": "Profile",
+      "members": "Members",
+      "dashboard": "Dashboard",
+      "billing": "Billing",
+      "integrations": "Integrations"
+    },
+    "workspace": {
+      "title": "Workspace",
+      "subtitle": "How your studio shows up across the product.",
+      "section": {
+        "identity": "Identity",
+        "identityHint": "Name and tagline appear in the sidebar, headers, invoices, and proposals.",
+        "brand": "Brand",
+        "brandHint": "Accent color drives the gradient mark, focus rings, and primary buttons.",
+        "money": "Money",
+        "moneyHint": "Default currency is what new finance entries land in. Tax rate is applied to invoices."
+      },
+      "field": {
+        "name": "Workspace name",
+        "tagline": "Tagline",
+        "taglinePlaceholder": "Studio that ships.",
+        "logo": "Logo URL",
+        "logoHint": "Direct image URL. Upload via R2 lands later.",
+        "accent": "Accent color",
+        "accentCustom": "Custom HSL",
+        "accentCustomHint": "Hue Saturation% Lightness% — e.g. 226 100% 65%",
+        "accentHex": "Hex",
+        "baseCurrency": "Base currency",
+        "taxRate": "Tax rate (%)"
+      },
+      "preset": "Presets",
+      "preview": "Preview",
+      "save": "Save changes",
+      "saved": "Saved.",
+      "saveFailed": "Couldn't save changes.",
+      "noChanges": "No changes to save.",
+      "resetAccent": "Reset accent"
+    }
+  },
   "Auth": {
     "eyebrowLogin": "Welcome back",
     "eyebrowSignup": "Get started",
