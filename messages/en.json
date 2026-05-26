@@ -2,7 +2,7 @@
   "Meta": {
     "title": "Injaazh OS",
     "tagline": "Your agency, in one place.",
-    "description": "Single-tenant operating system for solo founders and small studios — clients, projects, finance, proposals, and an AI copilot."
+    "description": "Multi-user operating system for studios — clients, projects, finance, proposals, and an AI copilot."
   },
   "Common": {
     "loading": "Loading…",
@@ -18,38 +18,55 @@
     "all": "All",
     "none": "None",
     "yes": "Yes",
-    "no": "No"
+    "no": "No",
+    "close": "Close",
+    "open": "Open"
   },
   "Nav": {
+    "groupWorkspace": "Workspace",
+    "groupSales": "Sales",
+    "groupDelivery": "Delivery",
+    "groupMoney": "Money",
+    "groupOrg": "Organization",
     "dashboard": "Dashboard",
+    "myWork": "My Work",
+    "inbox": "Inbox",
+    "leads": "Leads",
     "clients": "Clients",
-    "projects": "Projects",
     "proposals": "Proposals",
+    "projects": "Projects",
     "tasks": "Tasks",
+    "time": "Time tracking",
     "finance": "Finance",
-    "invoiceMaker": "Invoice Maker",
-    "focusTimer": "Focus Timer",
+    "invoices": "Invoices",
+    "subscriptions": "Subscriptions",
+    "team": "Team",
     "settings": "Settings",
-    "workspace": "Workspace"
+    "readOnly": "read-only",
+    "collapse": "Collapse sidebar",
+    "expand": "Expand sidebar"
   },
   "Header": {
     "searchPlaceholder": "Search or jump to…",
+    "searchHint": "Press {shortcut} to search",
     "askCopilot": "Copilot",
     "switchToLight": "Switch to light",
-    "switchToDark": "Switch to dark"
+    "switchToDark": "Switch to dark",
+    "notifications": "Notifications",
+    "noNotifications": "You're all caught up.",
+    "profile": "Profile",
+    "settings": "Settings",
+    "signOut": "Sign out",
+    "language": "Language",
+    "english": "English",
+    "bengali": "বাংলা",
+    "workspace": "Workspace"
   },
-  "Dashboard": {
-    "eyebrow": "Executive overview",
-    "greeting": "Welcome back, {name}",
-    "subtitle": "Here's the pulse of {workspace} today.",
-    "deepWork": "Deep work",
-    "quickAdd": "Quick add",
-    "stats": {
-      "activeProjects": "Active projects",
-      "netThisMonth": "Net (this month)",
-      "activeClients": "Active clients",
-      "focusThisMonth": "Focus (this month)"
-    }
+  "Stub": {
+    "comingSoon": "Coming in a later phase",
+    "description": "This module is queued in the roadmap. The shell, navigation and permissions are live — real content lands when its phase ships.",
+    "viewRoadmap": "View roadmap",
+    "backToDashboard": "Back to dashboard"
   },
   "Auth": {
     "eyebrowLogin": "Welcome back",

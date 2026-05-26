@@ -1,19 +1,18 @@
 import type { ReactNode } from "react";
 import { setRequestLocale } from "next-intl/server";
 
-import { requireSession } from "@/lib/auth/session";
-import type { Locale } from "@/i18n/routing";
+import { AppShell } from "@/components/layout/app-shell";
+import { connectMongoose } from "@/lib/db/client";
+import { Organization } from "@/lib/db/models";
+import { requireOrgContext } from "@/lib/auth/session";
+import { hasLocale } from "@/i18n/routing";
 
 /**
- * Protected layout — the actual app shell (sidebar/header) lands in a later
- * phase. For now it just enforces auth so anything under /(app)/ requires a
- * signed-in user.
- *
- * `params.locale` is typed loosely (string) because Next.js generates the
- * LayoutProps type from the segment name, not our routing config. We narrow
- * to `Locale` after validation in `requireSession`.
+ * Protected app layout — wraps everything under /(app)/ with the shell
+ * (sidebar + header). Server-side auth gate runs first; failed auth
+ * redirects to /auth/login.
  */
-export default async function AppLayout({
+export default async function ProtectedAppLayout({
   children,
   params,
 }: {
@@ -21,9 +20,32 @@ export default async function AppLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  setRequestLocale(locale);
+  const safeLocale = hasLocale(locale) ? locale : "en";
+  setRequestLocale(safeLocale);
 
-  await requireSession(locale as Locale);
+  const ctx = await requireOrgContext(safeLocale);
 
-  return <>{children}</>;
+  // Hydrate organization name once on the server so the sidebar can show it
+  // immediately without an extra client roundtrip.
+  await connectMongoose();
+  const org = await Organization.findById(ctx.organizationId)
+    .select("name")
+    .lean();
+
+  return (
+    <AppShell
+      locale={safeLocale}
+      session={{
+        userId: ctx.session.userId,
+        email: ctx.session.email,
+        name: ctx.session.name,
+        image: ctx.session.image,
+        role: ctx.role,
+        organizationId: ctx.organizationId,
+        organizationName: org?.name ?? "Workspace",
+      }}
+    >
+      {children}
+    </AppShell>
+  );
 }

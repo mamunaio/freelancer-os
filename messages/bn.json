@@ -2,7 +2,7 @@
   "Meta": {
     "title": "Injaazh OS",
     "tagline": "আপনার এজেন্সি, এক জায়গায়।",
-    "description": "একক-ইউজার অপারেটিং সিস্টেম — ক্লায়েন্ট, প্রোজেক্ট, ফিনান্স, প্রপোজাল আর AI কোপাইলট সব এক ছাদের নিচে।"
+    "description": "স্টুডিওর জন্য মাল্টি-ইউজার অপারেটিং সিস্টেম — ক্লায়েন্ট, প্রোজেক্ট, ফিনান্স, প্রপোজাল আর AI কোপাইলট।"
   },
   "Common": {
     "loading": "লোড হচ্ছে…",
@@ -18,38 +18,55 @@
     "all": "সব",
     "none": "নেই",
     "yes": "হ্যাঁ",
-    "no": "না"
+    "no": "না",
+    "close": "বন্ধ করুন",
+    "open": "খুলুন"
   },
   "Nav": {
+    "groupWorkspace": "ওয়ার্কস্পেস",
+    "groupSales": "সেলস",
+    "groupDelivery": "ডেলিভারি",
+    "groupMoney": "মানি",
+    "groupOrg": "অর্গানাইজেশন",
     "dashboard": "ড্যাশবোর্ড",
+    "myWork": "মাই ওয়ার্ক",
+    "inbox": "ইনবক্স",
+    "leads": "লিড",
     "clients": "ক্লায়েন্ট",
-    "projects": "প্রোজেক্ট",
     "proposals": "প্রপোজাল",
+    "projects": "প্রোজেক্ট",
     "tasks": "টাস্ক",
+    "time": "টাইম ট্র্যাকিং",
     "finance": "ফিনান্স",
-    "invoiceMaker": "ইনভয়েস মেকার",
-    "focusTimer": "ফোকাস টাইমার",
+    "invoices": "ইনভয়েস",
+    "subscriptions": "সাবস্ক্রিপশন",
+    "team": "টিম",
     "settings": "সেটিংস",
-    "workspace": "ওয়ার্কস্পেস"
+    "readOnly": "রিড-অনলি",
+    "collapse": "সাইডবার বন্ধ করুন",
+    "expand": "সাইডবার খুলুন"
   },
   "Header": {
     "searchPlaceholder": "সার্চ করুন বা জাম্প করুন…",
+    "searchHint": "সার্চের জন্য {shortcut} চাপুন",
     "askCopilot": "কোপাইলট",
     "switchToLight": "লাইট মোডে যান",
-    "switchToDark": "ডার্ক মোডে যান"
+    "switchToDark": "ডার্ক মোডে যান",
+    "notifications": "নোটিফিকেশন",
+    "noNotifications": "সব আপ-টু-ডেট।",
+    "profile": "প্রোফাইল",
+    "settings": "সেটিংস",
+    "signOut": "সাইন আউট",
+    "language": "ভাষা",
+    "english": "English",
+    "bengali": "বাংলা",
+    "workspace": "ওয়ার্কস্পেস"
   },
-  "Dashboard": {
-    "eyebrow": "এক্সিকিউটিভ ওভারভিউ",
-    "greeting": "ফিরে এসেছেন, {name}",
-    "subtitle": "আজকের {workspace}-এর অবস্থা।",
-    "deepWork": "ডিপ ওয়ার্ক",
-    "quickAdd": "কুইক অ্যাড",
-    "stats": {
-      "activeProjects": "সক্রিয় প্রোজেক্ট",
-      "netThisMonth": "এই মাসের নেট",
-      "activeClients": "সক্রিয় ক্লায়েন্ট",
-      "focusThisMonth": "এই মাসের ফোকাস"
-    }
+  "Stub": {
+    "comingSoon": "পরবর্তী ফেজে আসছে",
+    "description": "এই মডিউল রোডম্যাপে আছে। শেল, নেভিগেশন এবং পারমিশন কাজ করছে — কন্টেন্ট আসবে নির্দিষ্ট ফেজে।",
+    "viewRoadmap": "রোডম্যাপ দেখুন",
+    "backToDashboard": "ড্যাশবোর্ডে ফিরে যান"
   },
   "Auth": {
     "eyebrowLogin": "ফিরে আসায় স্বাগতম",
