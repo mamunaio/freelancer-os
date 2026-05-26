@@ -11,8 +11,8 @@ interface HomeProps {
  * Phase 0 placeholder home page.
  * Confirms the i18n + theme + Tailwind v4 + font pipeline is green.
  *
- * Will be replaced by the protected dashboard once auth + Supabase types
- * are wired in Phase 1.
+ * Will be replaced by the protected dashboard once auth and data layer are
+ * wired in upcoming phases.
  */
 export default async function Home({ params }: HomeProps) {
   const { locale } = await params;

@@ -109,7 +109,7 @@ export function ScaffoldLanding({
             <StatusPill label="React 19" />
             <StatusPill label="Tailwind v4" />
             <StatusPill label="next-intl" />
-            <StatusPill label="Supabase SSR" />
+            <StatusPill label="MongoDB" />
           </div>
         </div>
 
@@ -130,8 +130,8 @@ export function ScaffoldLanding({
 
         <p className="mt-6 text-center text-xs text-[hsl(var(--muted-foreground))]">
           {locale === "bn"
-            ? "ফাউন্ডেশন রেডি। পরের ফেজে ড্যাশবোর্ড আর সাপাবেস ইন্টিগ্রেশন।"
-            : "Foundation ready. Dashboard + Supabase wiring lands next phase."}
+            ? "ফাউন্ডেশন রেডি। পরবর্তী ফেজে অথ ও ড্যাশবোর্ড।"
+            : "Foundation ready. Auth and dashboard land next."}
         </p>
       </div>
     </main>

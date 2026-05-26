@@ -1,11 +1,11 @@
 # Injaazh OS
 
-Single-tenant agency operating system. CRM, projects, finance, proposals,
-focus timer, and an AI copilot — all bound together by a Supabase backend.
+Multi-user agency operating system. CRM, projects, finance, proposals,
+focus timer, and an AI copilot — built for small studios and their teams.
 
-> **v2 in progress.** This branch is the Next.js 15 + Tailwind v4 rewrite.
-> The legacy Vite + React Router 6 codebase is preserved on the
-> [`legacy-vite`](https://github.com/mamunaio/freelancer-os/tree/legacy-vite)
+> **v2 in progress.** This branch is the Next.js 15 + Tailwind v4 rewrite,
+> backed by MongoDB Atlas. The legacy Vite + Supabase codebase is preserved
+> on the [`legacy-vite`](https://github.com/mamunaio/freelancer-os/tree/legacy-vite)
 > branch on GitHub.
 
 ## Stack
@@ -13,7 +13,8 @@ focus timer, and an AI copilot — all bound together by a Supabase backend.
 - Next.js 15 (App Router, Turbopack dev)
 - React 19
 - Tailwind CSS v4 (CSS-first `@theme`)
-- Supabase + `@supabase/ssr`
+- MongoDB Atlas (data layer — wiring in progress)
+- Auth.js (auth — wiring in progress)
 - next-intl (English default, Bengali secondary)
 - TanStack Query v5
 - shadcn/ui (new-york style) + Radix UI
@@ -26,7 +27,7 @@ focus timer, and an AI copilot — all bound together by a Supabase backend.
 
 ```bash
 npm install
-cp .env.example .env.local   # then paste your Supabase keys
+cp .env.example .env.local   # fill in MONGODB_URI, AUTH_SECRET, etc.
 npm run dev                  # http://localhost:3000
 ```
 
@@ -55,12 +56,7 @@ src/
   lib/
     env.ts              # publicEnv / serverEnv accessors
     utils.ts            # cn() helper
-    supabase/
-      client.ts         # browser client
-      server.ts         # server client (cookies wired)
-      middleware.ts     # session refresh helper
-      types.ts          # generated DB types (regen pending)
-  middleware.ts         # combines next-intl + Supabase session refresh
+  middleware.ts         # next-intl locale routing (auth lands here next)
 messages/
   en.json               # English message catalog
   bn.json               # Bengali message catalog
@@ -69,26 +65,25 @@ public/
   brand/injaazh-logo.png
 ```
 
-## Migration plan
-
-This is **Phase 0** — foundation only. Subsequent phases:
+## Roadmap
 
 | Phase | Focus |
 |------:|-------|
-| 0 | ✅ Next.js + Tailwind v4 + i18n + Supabase SSR scaffold |
-| 1 | Auth + protected layout shell + dashboard |
-| 2 | Clients · Projects · Tasks |
-| 3 | Finance · Invoice Maker · Proposals |
-| 4 | Multi-currency (BDT ↔ USD with daily live rate) |
-| 5 | AI surfaces · Realtime notifications · Public portal |
-| 6 | Polish · tests · accessibility audit |
+| 0 | ✅ Next.js + Tailwind v4 + i18n scaffold |
+| 1 | Architecture decisions (multi-tenant, modules, dashboard concept) |
+| 2 | MongoDB + Auth.js + organization/team model |
+| 3 | App shell + protected layout |
+| 4 | Module-by-module port |
+| 5 | AI surfaces, file storage, email |
+| 6 | Polish, tests, accessibility audit |
 
 ## Environment
 
-Public Supabase keys go in `NEXT_PUBLIC_*` and are safe to expose. The
-service role key (`SUPABASE_SERVICE_ROLE_KEY`) is server-only and never
-imported from a client component — `lib/env.ts` enforces this.
+All secrets live in `.env.local` (gitignored). Use `.env.example` as the
+template. Server-only secrets (Mongo URI, AUTH_SECRET, API keys) must
+never be imported from a client component — `lib/env.ts` segregates
+public vs. server access.
 
 ## License
 
-Private — single-tenant.
+Private.

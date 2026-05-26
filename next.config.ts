@@ -15,13 +15,18 @@ const nextConfig: NextConfig = {
   },
   images: {
     remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "*.supabase.co",
-      },
+      // R2 public bucket — set R2_PUBLIC_URL once the storage layer is wired.
+      ...(process.env.R2_PUBLIC_URL
+        ? [
+            {
+              protocol: "https" as const,
+              hostname: new URL(process.env.R2_PUBLIC_URL).hostname,
+            },
+          ]
+        : []),
     ],
   },
-  // react-pdf and recharts ship CJS — keep them out of the server bundle.
+  // react-pdf ships CJS — keep it out of the server bundle.
   serverExternalPackages: ["@react-pdf/renderer"],
 };
 
