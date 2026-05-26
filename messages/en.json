@@ -279,5 +279,36 @@
     "unauthorized": "You don't have access to this workspace.",
     "notFound": "We couldn't find what you were looking for.",
     "generic": "Something went wrong. Please try again."
+  },
+  "DashboardCustomize": {
+    "title": "Dashboard layout",
+    "subtitle": "Reorder sections and hide what you don't need. Defaults differ by role.",
+    "lockedHint": "The briefing section is the dashboard anchor and stays visible.",
+    "save": "Save layout",
+    "saved": "Layout saved.",
+    "reset": "Reset to default",
+    "resetConfirmTitle": "Reset dashboard layout?",
+    "resetConfirmBody": "Your customisations will be replaced with the default layout for your role.",
+    "resetAction": "Reset",
+    "noChanges": "No changes to save.",
+    "saveFailed": "Couldn't save the layout.",
+    "drag": "Drag to reorder",
+    "show": "Show",
+    "hide": "Hide",
+    "locked": "Anchor",
+    "section": {
+      "briefing": "Today's briefing",
+      "briefingHint": "AI-written summary of what matters today.",
+      "priority": "What needs you",
+      "priorityHint": "Top task, deadline, and pending invoice surfaced together.",
+      "revenue": "Revenue and pulse",
+      "revenueHint": "Live revenue chart with month-to-date overlay.",
+      "pulse": "Activity and AI insights",
+      "pulseHint": "Recent events feed plus AI-generated observations.",
+      "stats": "Quick stats",
+      "statsHint": "Compact metric tiles — clients, projects, hours, cash.",
+      "upcoming": "Upcoming this week",
+      "upcomingHint": "Calendar strip of tasks, deadlines, meetings, invoices."
+    }
   }
 }
