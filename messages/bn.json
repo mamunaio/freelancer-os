@@ -52,12 +52,29 @@
     }
   },
   "Auth": {
+    "eyebrowLogin": "ফিরে আসায় স্বাগতম",
+    "eyebrowSignup": "শুরু করুন",
+    "loginTitle": "ইনজাজে সাইন ইন করুন",
+    "loginSubtitle": "যেখানে ছেড়েছিলেন সেখান থেকেই চালিয়ে যান।",
+    "signupTitle": "আপনার স্টুডিও তৈরি করুন",
+    "signupSubtitle": "আমরা আপনার ওয়ার্কস্পেস তৈরি করে সাইন ইন করিয়ে দেব।",
     "signIn": "সাইন ইন",
     "signUp": "সাইন আপ",
     "signOut": "সাইন আউট",
+    "createAccount": "অ্যাকাউন্ট তৈরি করুন",
     "email": "ইমেইল",
     "password": "পাসওয়ার্ড",
-    "continueWithGoogle": "গুগল দিয়ে চালিয়ে যান"
+    "name": "আপনার নাম",
+    "organization": "স্টুডিওর নাম",
+    "passwordHint": "অন্তত ৮টি অক্ষর।",
+    "continueWithGoogle": "গুগল দিয়ে চালিয়ে যান",
+    "or": "অথবা",
+    "alreadyHaveAccount": "ইতিমধ্যে অ্যাকাউন্ট আছে?",
+    "noAccount": "অ্যাকাউন্ট নেই?",
+    "signInInstead": "সাইন ইন করুন",
+    "createOne": "একটি তৈরি করুন",
+    "invalidCredentials": "ভুল ইমেইল বা পাসওয়ার্ড।",
+    "welcomeBack": "আবার স্বাগতম।"
   },
   "Errors": {
     "unauthorized": "এই ওয়ার্কস্পেসে আপনার অ্যাক্সেস নেই।",

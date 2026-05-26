@@ -52,12 +52,29 @@
     }
   },
   "Auth": {
+    "eyebrowLogin": "Welcome back",
+    "eyebrowSignup": "Get started",
+    "loginTitle": "Sign in to Injaazh",
+    "loginSubtitle": "Pick up where you left off.",
+    "signupTitle": "Create your studio",
+    "signupSubtitle": "We'll set up your workspace and sign you in.",
     "signIn": "Sign in",
     "signUp": "Sign up",
     "signOut": "Sign out",
+    "createAccount": "Create account",
     "email": "Email",
     "password": "Password",
-    "continueWithGoogle": "Continue with Google"
+    "name": "Your name",
+    "organization": "Studio name",
+    "passwordHint": "At least 8 characters.",
+    "continueWithGoogle": "Continue with Google",
+    "or": "or",
+    "alreadyHaveAccount": "Already have an account?",
+    "noAccount": "Don't have an account?",
+    "signInInstead": "Sign in",
+    "createOne": "Create one",
+    "invalidCredentials": "Invalid email or password.",
+    "welcomeBack": "Welcome back."
   },
   "Errors": {
     "unauthorized": "You don't have access to this workspace.",
