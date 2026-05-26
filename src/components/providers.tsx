@@ -5,16 +5,22 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { SessionProvider } from "next-auth/react";
 import { Toaster } from "sonner";
-import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeProvider, type ThemePreference } from "@/components/theme-provider";
 
 /**
  * Client-side providers stack:
  *  - SessionProvider: Auth.js session context for `useSession` etc.
- *  - ThemeProvider: dark/light toggle persisted in localStorage
+ *  - ThemeProvider: dark/light/system toggle persisted in localStorage
  *  - QueryClient: server state with sane defaults
  *  - Sonner toaster: only one toast surface (consolidated from legacy v1)
  */
-export function Providers({ children }: { children: ReactNode }) {
+export function Providers({
+  children,
+  initialThemePreference,
+}: {
+  children: ReactNode;
+  initialThemePreference?: ThemePreference;
+}) {
   const [queryClient] = useState(
     () =>
       new QueryClient({
@@ -30,7 +36,7 @@ export function Providers({ children }: { children: ReactNode }) {
 
   return (
     <SessionProvider>
-      <ThemeProvider>
+      <ThemeProvider initialPreference={initialThemePreference}>
         <QueryClientProvider client={queryClient}>
           {children}
           <Toaster

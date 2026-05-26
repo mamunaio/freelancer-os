@@ -137,6 +137,55 @@
     "invalidCredentials": "Invalid email or password.",
     "welcomeBack": "Welcome back."
   },
+  "Profile": {
+    "title": "Your profile",
+    "subtitle": "How you show up to your team.",
+    "section": {
+      "personal": "Personal info",
+      "personalHint": "Your display name and avatar across the workspace.",
+      "preferences": "Preferences",
+      "preferencesHint": "Defaults for how the product feels for you.",
+      "password": "Password",
+      "passwordHint": "Change the password used to sign into your account.",
+      "danger": "Danger zone",
+      "dangerHint": "Permanent actions on your account."
+    },
+    "field": {
+      "name": "Display name",
+      "email": "Email",
+      "emailHint": "Email is managed by your sign-in method and cannot be changed here.",
+      "image": "Avatar URL",
+      "imageHint": "Direct image URL. Upload via R2 lands later.",
+      "language": "Language",
+      "theme": "Theme",
+      "themeDark": "Dark",
+      "themeLight": "Light",
+      "themeSystem": "Match system",
+      "currentPassword": "Current password",
+      "newPassword": "New password",
+      "newPasswordHint": "At least 8 characters.",
+      "confirmPassword": "Confirm new password"
+    },
+    "save": "Save changes",
+    "savePassword": "Update password",
+    "saved": "Profile updated.",
+    "passwordSaved": "Password updated.",
+    "passwordMismatch": "Passwords don't match.",
+    "noChanges": "No changes to save.",
+    "saveFailed": "Couldn't save changes.",
+    "delete": {
+      "title": "Delete account",
+      "description": "This permanently removes your account and all of your personal data. Workspace data you created stays with the organization.",
+      "ownerBlock": "Owners must transfer ownership before deleting their account.",
+      "button": "Delete account",
+      "confirmTitle": "Delete your account?",
+      "confirmBody": "This action can't be undone. Type your email to confirm.",
+      "confirmInputLabel": "Type {email} to confirm",
+      "confirmAction": "Delete forever",
+      "cancel": "Cancel",
+      "deleted": "Account deleted."
+    }
+  },
   "Errors": {
     "unauthorized": "You don't have access to this workspace.",
     "notFound": "We couldn't find what you were looking for.",
