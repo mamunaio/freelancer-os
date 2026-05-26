@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -24,7 +24,8 @@ export function PasswordInput({
   ...rest
 }: PasswordInputProps) {
   const [show, setShow] = useState(false);
-  const inputId = id ?? `pwd-${Math.random().toString(36).slice(2, 8)}`;
+  const reactId = useId();
+  const inputId = id ?? reactId;
 
   return (
     <div className="space-y-1.5">

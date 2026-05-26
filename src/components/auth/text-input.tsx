@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import { forwardRef, useId } from "react";
 import { cn } from "@/lib/utils";
 
 interface TextInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -9,12 +9,16 @@ interface TextInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 
 /**
  * Plain text input matching the auth shell aesthetic.
- * Uses forwardRef so it works with react-hook-form / native form refs.
+ *
+ * Uses React's `useId()` so the auto-generated id is deterministic across
+ * server-render and client-hydration (avoids hydration mismatch warnings
+ * caused by `Math.random()`).
  */
 export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
   function TextInput({ label, error, hint, className, id, ...rest }, ref) {
-    const inputId =
-      id ?? `txt-${Math.random().toString(36).slice(2, 8)}`;
+    const reactId = useId();
+    const inputId = id ?? reactId;
+
     return (
       <div className="space-y-1.5">
         {label && (
