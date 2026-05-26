@@ -1,0 +1,8 @@
+.next
+node_modules
+_node_modules_old
+_backup_assets
+package-lock.json
+bun.lock
+bun.lockb
+.git

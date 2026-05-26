@@ -1,0 +1,67 @@
+{
+  "Meta": {
+    "title": "Injaazh OS",
+    "tagline": "Your agency, in one place.",
+    "description": "Single-tenant operating system for solo founders and small studios — clients, projects, finance, proposals, and an AI copilot."
+  },
+  "Common": {
+    "loading": "Loading…",
+    "error": "Something went wrong.",
+    "retry": "Try again",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create",
+    "search": "Search",
+    "filter": "Filter",
+    "all": "All",
+    "none": "None",
+    "yes": "Yes",
+    "no": "No"
+  },
+  "Nav": {
+    "dashboard": "Dashboard",
+    "clients": "Clients",
+    "projects": "Projects",
+    "proposals": "Proposals",
+    "tasks": "Tasks",
+    "finance": "Finance",
+    "invoiceMaker": "Invoice Maker",
+    "focusTimer": "Focus Timer",
+    "settings": "Settings",
+    "workspace": "Workspace"
+  },
+  "Header": {
+    "searchPlaceholder": "Search or jump to…",
+    "askCopilot": "Copilot",
+    "switchToLight": "Switch to light",
+    "switchToDark": "Switch to dark"
+  },
+  "Dashboard": {
+    "eyebrow": "Executive overview",
+    "greeting": "Welcome back, {name}",
+    "subtitle": "Here's the pulse of {workspace} today.",
+    "deepWork": "Deep work",
+    "quickAdd": "Quick add",
+    "stats": {
+      "activeProjects": "Active projects",
+      "netThisMonth": "Net (this month)",
+      "activeClients": "Active clients",
+      "focusThisMonth": "Focus (this month)"
+    }
+  },
+  "Auth": {
+    "signIn": "Sign in",
+    "signUp": "Sign up",
+    "signOut": "Sign out",
+    "email": "Email",
+    "password": "Password",
+    "continueWithGoogle": "Continue with Google"
+  },
+  "Errors": {
+    "unauthorized": "You don't have access to this workspace.",
+    "notFound": "We couldn't find what you were looking for.",
+    "generic": "Something went wrong. Please try again."
+  }
+}

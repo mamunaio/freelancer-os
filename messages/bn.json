@@ -1,0 +1,67 @@
+{
+  "Meta": {
+    "title": "Injaazh OS",
+    "tagline": "আপনার এজেন্সি, এক জায়গায়।",
+    "description": "একক-ইউজার অপারেটিং সিস্টেম — ক্লায়েন্ট, প্রোজেক্ট, ফিনান্স, প্রপোজাল আর AI কোপাইলট সব এক ছাদের নিচে।"
+  },
+  "Common": {
+    "loading": "লোড হচ্ছে…",
+    "error": "কিছু একটা ভুল হয়েছে।",
+    "retry": "আবার চেষ্টা করুন",
+    "save": "সেভ করুন",
+    "cancel": "বাতিল",
+    "delete": "ডিলিট",
+    "edit": "এডিট",
+    "create": "তৈরি করুন",
+    "search": "সার্চ",
+    "filter": "ফিল্টার",
+    "all": "সব",
+    "none": "নেই",
+    "yes": "হ্যাঁ",
+    "no": "না"
+  },
+  "Nav": {
+    "dashboard": "ড্যাশবোর্ড",
+    "clients": "ক্লায়েন্ট",
+    "projects": "প্রোজেক্ট",
+    "proposals": "প্রপোজাল",
+    "tasks": "টাস্ক",
+    "finance": "ফিনান্স",
+    "invoiceMaker": "ইনভয়েস মেকার",
+    "focusTimer": "ফোকাস টাইমার",
+    "settings": "সেটিংস",
+    "workspace": "ওয়ার্কস্পেস"
+  },
+  "Header": {
+    "searchPlaceholder": "সার্চ করুন বা জাম্প করুন…",
+    "askCopilot": "কোপাইলট",
+    "switchToLight": "লাইট মোডে যান",
+    "switchToDark": "ডার্ক মোডে যান"
+  },
+  "Dashboard": {
+    "eyebrow": "এক্সিকিউটিভ ওভারভিউ",
+    "greeting": "ফিরে এসেছেন, {name}",
+    "subtitle": "আজকের {workspace}-এর অবস্থা।",
+    "deepWork": "ডিপ ওয়ার্ক",
+    "quickAdd": "কুইক অ্যাড",
+    "stats": {
+      "activeProjects": "সক্রিয় প্রোজেক্ট",
+      "netThisMonth": "এই মাসের নেট",
+      "activeClients": "সক্রিয় ক্লায়েন্ট",
+      "focusThisMonth": "এই মাসের ফোকাস"
+    }
+  },
+  "Auth": {
+    "signIn": "সাইন ইন",
+    "signUp": "সাইন আপ",
+    "signOut": "সাইন আউট",
+    "email": "ইমেইল",
+    "password": "পাসওয়ার্ড",
+    "continueWithGoogle": "গুগল দিয়ে চালিয়ে যান"
+  },
+  "Errors": {
+    "unauthorized": "এই ওয়ার্কস্পেসে আপনার অ্যাক্সেস নেই।",
+    "notFound": "আমরা যা খুঁজছিলাম পাওয়া যায়নি।",
+    "generic": "কিছু একটা ভুল হয়েছে। আবার চেষ্টা করুন।"
+  }
+}
