@@ -1,15 +1,47 @@
 "use client";
 
-import type { LucideIcon } from "lucide-react";
+import {
+  Building2,
+  CreditCard,
+  LayoutDashboard,
+  Plug,
+  User as UserIcon,
+  UsersRound,
+  type LucideIcon,
+} from "lucide-react";
 
 import { Link, usePathname } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
+/**
+ * Vertical tab strip on desktop, horizontal scroll on mobile.
+ *
+ * Tabs are passed in as plain serializable objects (server-component-safe).
+ * Icon resolution happens here on the client so component references never
+ * cross the server/client boundary.
+ */
+
+export type SettingsTabIcon =
+  | "workspace"
+  | "profile"
+  | "members"
+  | "dashboard"
+  | "billing"
+  | "integrations";
+
+const ICONS: Record<SettingsTabIcon, LucideIcon> = {
+  workspace: Building2,
+  profile: UserIcon,
+  members: UsersRound,
+  dashboard: LayoutDashboard,
+  billing: CreditCard,
+  integrations: Plug,
+};
+
 interface Tab {
-  id: string;
+  id: SettingsTabIcon;
   href: string;
   label: string;
-  icon: LucideIcon;
   exact: boolean;
 }
 
@@ -17,12 +49,6 @@ interface Props {
   tabs: Tab[];
 }
 
-/**
- * Vertical tab strip on desktop, horizontal scroll on mobile.
- *
- * Active match: when `exact`, only `pathname === href` highlights. Otherwise
- * `pathname.startsWith(href)` so /settings/members/[id] keeps members lit up.
- */
 export function SettingsTabs({ tabs }: Props) {
   const pathname = usePathname();
 
@@ -33,7 +59,7 @@ export function SettingsTabs({ tabs }: Props) {
     >
       <ul className="flex gap-1 md:flex-col">
         {tabs.map((tab) => {
-          const Icon = tab.icon;
+          const Icon = ICONS[tab.id];
           const active = tab.exact
             ? pathname === tab.href
             : pathname === tab.href || pathname.startsWith(`${tab.href}/`);

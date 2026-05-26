@@ -135,7 +135,13 @@ export function InvitationsTable({ locale, invitations }: Props) {
                         {t("expired")}
                       </span>
                     ) : (
-                      <span title={format.dateTime(new Date(inv.expiresAt), "long")}>
+                      <span
+                        title={format.dateTime(new Date(inv.expiresAt), {
+                          year: "numeric",
+                          month: "long",
+                          day: "numeric",
+                        })}
+                      >
                         {format.relativeTime(new Date(inv.expiresAt), now)}
                       </span>
                     )}

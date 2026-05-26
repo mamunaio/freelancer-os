@@ -11,9 +11,9 @@ import {
   OrgMember,
   User,
 } from "@/lib/db/models";
-import { ORG_ROLES, type OrgRole } from "@/lib/db/models/org-member";
+import type { OrgRole } from "@/lib/db/models/org-member";
 import { requireOrgContext } from "@/lib/auth/session";
-import { assertRole, isAtLeast } from "@/lib/permissions/check";
+import { assertRole } from "@/lib/permissions/check";
 import { logEmail } from "@/lib/email/dev-logger";
 import { inviteUrl } from "@/lib/url";
 import type { Locale } from "@/i18n/routing";
@@ -324,8 +324,3 @@ export async function removeMemberAction(
   revalidatePath(`/${locale}/settings/members`);
   return { ok: true, data: undefined };
 }
-
-// Re-export the role constant to keep client components from importing the
-// model file directly (which is server-only via Mongoose).
-export const AVAILABLE_ROLES = ORG_ROLES;
-export { isAtLeast };

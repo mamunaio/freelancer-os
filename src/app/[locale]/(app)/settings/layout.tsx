@@ -1,24 +1,31 @@
 import type { ReactNode } from "react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import {
-  Building2,
-  CreditCard,
-  LayoutDashboard,
-  Plug,
-  User as UserIcon,
-  UsersRound,
-} from "lucide-react";
 
 import { requireOrgContext } from "@/lib/auth/session";
 import { can } from "@/lib/permissions/roles";
 import type { Locale } from "@/i18n/routing";
-import { SettingsTabs } from "@/components/settings/settings-tabs";
+import {
+  SettingsTabs,
+  type SettingsTabIcon,
+} from "@/components/settings/settings-tabs";
+
+interface Tab {
+  id: SettingsTabIcon;
+  href: string;
+  label: string;
+  exact: boolean;
+  visible: boolean;
+}
 
 /**
  * Settings shell — left-rail tab navigation, right-pane content.
  *
  * Tabs are filtered by role: members and workspace are admin+, profile and
  * dashboard are everyone, billing/integrations are owner-only stubs.
+ *
+ * Note: tab definitions stay as plain serializable objects (no icon
+ * component references) because they cross the server-to-client boundary.
+ * Icons are resolved inside `SettingsTabs` from the `id`.
  */
 export default async function SettingsLayout({
   children,
@@ -33,12 +40,11 @@ export default async function SettingsLayout({
   const ctx = await requireOrgContext(locale as Locale);
   const t = await getTranslations({ locale, namespace: "Settings" });
 
-  const tabs = [
+  const tabs: Tab[] = [
     {
       id: "workspace",
       href: "/settings",
       label: t("tabs.workspace"),
-      icon: Building2,
       visible: can.editWorkspaceSettings(ctx.role),
       exact: true,
     },
@@ -46,7 +52,6 @@ export default async function SettingsLayout({
       id: "profile",
       href: "/settings/profile",
       label: t("tabs.profile"),
-      icon: UserIcon,
       visible: true,
       exact: true,
     },
@@ -54,7 +59,6 @@ export default async function SettingsLayout({
       id: "members",
       href: "/settings/members",
       label: t("tabs.members"),
-      icon: UsersRound,
       visible: can.viewTeam(ctx.role),
       exact: false,
     },
@@ -62,7 +66,6 @@ export default async function SettingsLayout({
       id: "dashboard",
       href: "/settings/dashboard",
       label: t("tabs.dashboard"),
-      icon: LayoutDashboard,
       visible: true,
       exact: true,
     },
@@ -70,7 +73,6 @@ export default async function SettingsLayout({
       id: "billing",
       href: "/settings/billing",
       label: t("tabs.billing"),
-      icon: CreditCard,
       visible: can.manageBilling(ctx.role),
       exact: true,
     },
@@ -78,11 +80,12 @@ export default async function SettingsLayout({
       id: "integrations",
       href: "/settings/integrations",
       label: t("tabs.integrations"),
-      icon: Plug,
       visible: can.editWorkspaceSettings(ctx.role),
       exact: true,
     },
-  ].filter((t) => t.visible);
+  ];
+
+  const visibleTabs = tabs.filter((tab) => tab.visible);
 
   return (
     <div className="mx-auto max-w-6xl">
@@ -97,7 +100,7 @@ export default async function SettingsLayout({
       </header>
 
       <div className="grid gap-8 md:grid-cols-[220px_1fr]">
-        <SettingsTabs tabs={tabs} />
+        <SettingsTabs tabs={visibleTabs} />
         <div className="min-w-0">{children}</div>
       </div>
     </div>

@@ -78,7 +78,13 @@ export function MembersTable({ locale, viewerRole, members }: Props) {
                 <RoleBadge role={m.role} />
               </td>
               <td className="px-4 py-3 text-[hsl(var(--muted-foreground))]">
-                <span title={format.dateTime(new Date(m.joinedAt), "long")}>
+                <span
+                  title={format.dateTime(new Date(m.joinedAt), {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}
+                >
                   {format.relativeTime(new Date(m.joinedAt), now)}
                 </span>
               </td>
