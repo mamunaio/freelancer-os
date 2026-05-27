@@ -19,3 +19,11 @@ export {
 } from "./invitation";
 export { ExchangeRate, type ExchangeRateDoc } from "./exchange-rate";
 export { Client, CLIENT_STATUSES, type ClientDoc, type ClientStatus } from "./client";
+export {
+  Lead,
+  LEAD_STAGES,
+  LEAD_SOURCES,
+  type LeadDoc,
+  type LeadStage,
+  type LeadSource,
+} from "./lead";

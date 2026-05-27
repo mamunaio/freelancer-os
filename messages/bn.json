@@ -178,6 +178,114 @@
       "noActivity": "টিম মেম্বাররা সহযোগিতা শুরু করলে অ্যাক্টিভিটি ফিড দেখাবে।"
     }
   },
+  "Leads": {
+    "title": "লিড",
+    "subtitle": "প্রি-সেলস পাইপলাইন। ডিল জিতুন, তারপর ক্লায়েন্টে কনভার্ট করুন।",
+    "newLead": "নতুন লিড",
+    "edit": "লিড এডিট",
+    "search": "লিড খুঁজুন…",
+    "view": {
+      "kanban": "কানবান",
+      "list": "লিস্ট"
+    },
+    "stats": {
+      "active": "সক্রিয়",
+      "won": "জিতেছেন",
+      "lost": "হারিয়েছেন",
+      "pipelineValue": "পাইপলাইন ভ্যালু",
+      "conversionRate": "কনভার্শন"
+    },
+    "stage": {
+      "new": "নতুন",
+      "contacted": "যোগাযোগ হয়েছে",
+      "proposal": "প্রপোজাল",
+      "negotiation": "আলোচনা",
+      "won": "জিতেছেন",
+      "lost": "হারিয়েছেন"
+    },
+    "source": {
+      "referral": "রেফারেল",
+      "website": "ওয়েবসাইট",
+      "cold_outreach": "কোল্ড আউটরিচ",
+      "social": "সোশ্যাল",
+      "event": "ইভেন্ট",
+      "other": "অন্যান্য"
+    },
+    "filter": {
+      "stage": "স্টেজ",
+      "owner": "ওনার",
+      "source": "সোর্স",
+      "anyStage": "যেকোনো স্টেজ",
+      "anyOwner": "যেকোনো ওনার",
+      "anySource": "যেকোনো সোর্স",
+      "unassigned": "বরাদ্দহীন",
+      "clear": "পরিষ্কার"
+    },
+    "empty": {
+      "title": "এখনো কোনো লিড নেই",
+      "subtitle": "পাইপলাইন শুরু করতে প্রথম লিড যোগ করুন।",
+      "cta": "লিড যোগ করুন"
+    },
+    "filtered": {
+      "title": "ফিল্টারের সাথে মেলেনি",
+      "subtitle": "ফিল্টার পরিষ্কার করুন বা সার্চ পরিবর্তন করুন।"
+    },
+    "kanban": {
+      "empty": "খালি",
+      "addCard": "লিড যোগ"
+    },
+    "card": {
+      "noOwner": "বরাদ্দহীন",
+      "noValue": "মূল্য নেই",
+      "nextAction": "পরের কাজ: {value}",
+      "noNextAction": "পরের কাজ নেই",
+      "converted": "কনভার্টেড",
+      "convertedTo": "ক্লায়েন্টের সাথে সংযুক্ত"
+    },
+    "form": {
+      "name": "লিডের নাম",
+      "namePlaceholder": "যেমন Acme Co · ব্র্যান্ড রিফ্রেশ",
+      "company": "কোম্পানি",
+      "companyPlaceholder": "ঐচ্ছিক",
+      "email": "ইমেইল",
+      "emailPlaceholder": "contact@example.com",
+      "phone": "ফোন",
+      "phonePlaceholder": "+88 01700 000000",
+      "stage": "স্টেজ",
+      "source": "সোর্স",
+      "estimatedValue": "অনুমিত মূল্য",
+      "owner": "ওনার",
+      "noOwner": "বরাদ্দহীন",
+      "nextActionAt": "পরের কাজের তারিখ",
+      "nextActionNote": "পরের কাজের নোট",
+      "nextActionPlaceholder": "প্রপোজাল v2 পাঠান…",
+      "notes": "নোট",
+      "notesPlaceholder": "এই লিড সম্পর্কে যা মনে রাখতে চান…",
+      "create": "লিড তৈরি করুন",
+      "update": "সেভ করুন",
+      "cancel": "বাতিল",
+      "created": "লিড তৈরি হয়েছে।",
+      "updated": "লিড আপডেট হয়েছে।",
+      "createFailed": "লিড তৈরি করতে পারিনি।",
+      "updateFailed": "পরিবর্তন সেভ করতে পারিনি।"
+    },
+    "actions": {
+      "open": "লিড খুলুন",
+      "edit": "এডিট",
+      "convert": "ক্লায়েন্টে কনভার্ট",
+      "delete": "ডিলিট",
+      "deleteConfirmTitle": "এই লিড ডিলিট করবেন?",
+      "deleteConfirmBody": "এটি আপনার পাইপলাইন থেকে লিড সরিয়ে দেবে। মত পরিবর্তন হলে পরে আবার তৈরি করতে পারবেন।",
+      "deleteAction": "লিড ডিলিট",
+      "cancel": "বাতিল",
+      "deleted": "লিড ডিলিট হয়েছে।",
+      "stageChanged": "স্টেজ আপডেট হয়েছে।",
+      "converted": "লিড ক্লায়েন্টে কনভার্ট হয়েছে।",
+      "alreadyConverted": "এই লিড ইতিমধ্যে ক্লায়েন্টের সাথে যুক্ত।",
+      "convertNotWon": "কনভার্ট করার আগে লিডকে 'জিতেছেন' স্টেজে নিন।",
+      "viewClient": "ক্লায়েন্ট দেখুন"
+    }
+  },
   "Settings": {
     "title": "সেটিংস",
     "subtitle": "ওয়ার্কস্পেস, প্রোফাইল এবং টিম কন্ট্রোল।",

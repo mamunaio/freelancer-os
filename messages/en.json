@@ -178,6 +178,114 @@
       "noActivity": "Activity feed lights up once team members start collaborating."
     }
   },
+  "Leads": {
+    "title": "Leads",
+    "subtitle": "Pre-sales pipeline. Win deals, then convert to clients.",
+    "newLead": "New lead",
+    "edit": "Edit lead",
+    "search": "Search leads…",
+    "view": {
+      "kanban": "Kanban",
+      "list": "List"
+    },
+    "stats": {
+      "active": "Active",
+      "won": "Won",
+      "lost": "Lost",
+      "pipelineValue": "Pipeline value",
+      "conversionRate": "Conversion"
+    },
+    "stage": {
+      "new": "New",
+      "contacted": "Contacted",
+      "proposal": "Proposal sent",
+      "negotiation": "Negotiation",
+      "won": "Won",
+      "lost": "Lost"
+    },
+    "source": {
+      "referral": "Referral",
+      "website": "Website",
+      "cold_outreach": "Cold outreach",
+      "social": "Social",
+      "event": "Event",
+      "other": "Other"
+    },
+    "filter": {
+      "stage": "Stage",
+      "owner": "Owner",
+      "source": "Source",
+      "anyStage": "Any stage",
+      "anyOwner": "Any owner",
+      "anySource": "Any source",
+      "unassigned": "Unassigned",
+      "clear": "Clear"
+    },
+    "empty": {
+      "title": "No leads yet",
+      "subtitle": "Add your first lead to start working the pipeline.",
+      "cta": "Add a lead"
+    },
+    "filtered": {
+      "title": "No leads match",
+      "subtitle": "Try clearing filters or adjusting your search."
+    },
+    "kanban": {
+      "empty": "Empty",
+      "addCard": "Add lead"
+    },
+    "card": {
+      "noOwner": "Unassigned",
+      "noValue": "No value",
+      "nextAction": "Next: {value}",
+      "noNextAction": "No next action",
+      "converted": "Converted",
+      "convertedTo": "Linked to client"
+    },
+    "form": {
+      "name": "Lead name",
+      "namePlaceholder": "e.g. Acme Co · Brand refresh",
+      "company": "Company",
+      "companyPlaceholder": "Optional",
+      "email": "Email",
+      "emailPlaceholder": "contact@example.com",
+      "phone": "Phone",
+      "phonePlaceholder": "+1 555 0100",
+      "stage": "Stage",
+      "source": "Source",
+      "estimatedValue": "Estimated value",
+      "owner": "Owner",
+      "noOwner": "Unassigned",
+      "nextActionAt": "Next action date",
+      "nextActionNote": "Next action note",
+      "nextActionPlaceholder": "Send proposal v2…",
+      "notes": "Notes",
+      "notesPlaceholder": "Anything you want to remember about this lead…",
+      "create": "Create lead",
+      "update": "Save changes",
+      "cancel": "Cancel",
+      "created": "Lead created.",
+      "updated": "Lead updated.",
+      "createFailed": "Couldn't create lead.",
+      "updateFailed": "Couldn't save changes."
+    },
+    "actions": {
+      "open": "Open lead",
+      "edit": "Edit",
+      "convert": "Convert to client",
+      "delete": "Delete",
+      "deleteConfirmTitle": "Delete this lead?",
+      "deleteConfirmBody": "This removes the lead from your pipeline. You can recreate it later if you change your mind.",
+      "deleteAction": "Delete lead",
+      "cancel": "Cancel",
+      "deleted": "Lead deleted.",
+      "stageChanged": "Stage updated.",
+      "converted": "Lead converted to client.",
+      "alreadyConverted": "This lead is already linked to a client.",
+      "convertNotWon": "Move the lead to 'Won' before converting.",
+      "viewClient": "View client"
+    }
+  },
   "Settings": {
     "title": "Settings",
     "subtitle": "Workspace, profile, and team controls.",

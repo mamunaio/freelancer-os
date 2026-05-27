@@ -99,7 +99,6 @@ export const NAV_GROUPS: NavGroup[] = [
         i18nKey: "leads",
         icon: Compass,
         visible: (role) => can.manageLeads(role),
-        comingSoon: true,
       },
       {
         id: "clients",
