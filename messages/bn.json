@@ -286,6 +286,151 @@
       "viewClient": "ক্লায়েন্ট দেখুন"
     }
   },
+  "Projects": {
+    "title": "প্রোজেক্ট",
+    "subtitle": "ক্লায়েন্ট ও স্ট্যাটাস অনুযায়ী সাজানো ডেলিভারি কাজ।",
+    "newProject": "নতুন প্রোজেক্ট",
+    "edit": "প্রোজেক্ট এডিট",
+    "search": "প্রোজেক্ট খুঁজুন…",
+    "view": {
+      "kanban": "কানবান",
+      "list": "লিস্ট",
+      "timeline": "টাইমলাইন"
+    },
+    "stats": {
+      "active": "সক্রিয়",
+      "completed": "সম্পন্ন",
+      "onHold": "হোল্ডে",
+      "pinned": "পিন করা",
+      "budget": "বাজেট",
+      "billed": "বিল হয়েছে"
+    },
+    "status": {
+      "planning": "পরিকল্পনা",
+      "in_progress": "চলমান",
+      "review": "রিভিউ",
+      "on_hold": "হোল্ড",
+      "completed": "সম্পন্ন",
+      "archived": "আর্কাইভড"
+    },
+    "filter": {
+      "status": "স্ট্যাটাস",
+      "client": "ক্লায়েন্ট",
+      "anyStatus": "যেকোনো স্ট্যাটাস",
+      "anyClient": "যেকোনো ক্লায়েন্ট",
+      "showArchived": "আর্কাইভড দেখান",
+      "clear": "পরিষ্কার"
+    },
+    "empty": {
+      "title": "এখনো কোনো প্রোজেক্ট নেই",
+      "subtitle": "ডেলিভারি ও বাজেট ট্র্যাক করতে প্রথম প্রোজেক্ট তৈরি করুন।",
+      "cta": "প্রথম প্রোজেক্ট যোগ করুন"
+    },
+    "filtered": {
+      "title": "প্রোজেক্ট মেলেনি",
+      "subtitle": "ফিল্টার পরিষ্কার করুন বা সার্চ পরিবর্তন করুন।"
+    },
+    "kanban": {
+      "empty": "খালি",
+      "addCard": "প্রোজেক্ট যোগ"
+    },
+    "card": {
+      "noClient": "কোনো ক্লায়েন্ট নেই",
+      "noBudget": "বাজেট সেট নেই",
+      "noDueDate": "ডিউ ডেট নেই",
+      "billedOf": "{budget} এর মধ্যে {billed}",
+      "daysLeft": "{count, plural, =0 {আজ ডিউ} other {# দিন বাকি}}",
+      "daysOverdue": "{count, plural, other {# দিন ওভারডিউ}}",
+      "members": "{count, plural, =0 {মেম্বার নেই} other {# জন মেম্বার}}"
+    },
+    "form": {
+      "name": "প্রোজেক্টের নাম",
+      "namePlaceholder": "যেমন ব্র্যান্ড রিফ্রেশ — Lumen",
+      "client": "ক্লায়েন্ট",
+      "clientPlaceholder": "ক্লায়েন্ট বাছুন",
+      "status": "স্ট্যাটাস",
+      "description": "বিবরণ",
+      "descriptionPlaceholder": "স্কোপ, লক্ষ্য, যা মনে রাখার মতো।",
+      "techStack": "টেক স্ট্যাক / ট্যাগ",
+      "techStackHint": "Enter চাপুন। কমা দিয়েও কাজ করে।",
+      "techStackPlaceholder": "react, ডিজাইন, রিটেইনার",
+      "budget": "বাজেট",
+      "startedAt": "শুরু",
+      "dueAt": "ডিউ",
+      "members": "প্রোজেক্ট মেম্বার",
+      "membersHint": "একজন Lead ও কন্ট্রিবিউটর বাছুন। তৈরিকারী অটো-Lead হবেন।",
+      "memberRoleLead": "Lead",
+      "memberRoleContributor": "Contributor",
+      "addMember": "মেম্বার যোগ",
+      "create": "প্রোজেক্ট তৈরি করুন",
+      "update": "সেভ করুন",
+      "cancel": "বাতিল",
+      "created": "প্রোজেক্ট তৈরি হয়েছে।",
+      "updated": "প্রোজেক্ট আপডেট হয়েছে।",
+      "createFailed": "প্রোজেক্ট তৈরি করতে পারিনি।",
+      "updateFailed": "পরিবর্তন সেভ করতে পারিনি।"
+    },
+    "actions": {
+      "open": "প্রোজেক্ট খুলুন",
+      "edit": "এডিট",
+      "pin": "উপরে পিন",
+      "unpin": "পিন সরান",
+      "archive": "আর্কাইভ",
+      "unarchive": "আনআর্কাইভ",
+      "delete": "ডিলিট",
+      "deleteConfirmTitle": "{name} আর্কাইভ করবেন?",
+      "deleteConfirmBody": "এটি প্রোজেক্ট আর্কাইভ করে তালিকা থেকে লুকাবে। টাস্ক, মাইলস্টোন, ইনভয়েস ওয়ার্কস্পেসে থাকবে।",
+      "deleteAction": "প্রোজেক্ট আর্কাইভ",
+      "cancel": "বাতিল",
+      "deleted": "প্রোজেক্ট আর্কাইভ হয়েছে।",
+      "statusChanged": "স্ট্যাটাস আপডেট হয়েছে।",
+      "pinned": "উপরে পিন হয়েছে।",
+      "unpinned": "পিন সরানো হয়েছে।"
+    },
+    "detail": {
+      "tabs": {
+        "overview": "ওভারভিউ",
+        "tasks": "টাস্ক",
+        "milestones": "মাইলস্টোন",
+        "activity": "অ্যাক্টিভিটি"
+      },
+      "section": {
+        "details": "বিস্তারিত",
+        "team": "টিম",
+        "budget": "বাজেট",
+        "timeline": "টাইমলাইন",
+        "description": "বিবরণ",
+        "noDescription": "এখনো কোনো বিবরণ নেই।"
+      },
+      "field": {
+        "client": "ক্লায়েন্ট",
+        "status": "স্ট্যাটাস",
+        "started": "শুরু",
+        "due": "ডিউ",
+        "completed": "সম্পন্ন",
+        "techStack": "টেক স্ট্যাক"
+      },
+      "tasksComingSoon": "টাস্ক পরের সাব-ফেজে আসছে।",
+      "activityComingSoon": "সহযোগিতা শুরু হলে অ্যাক্টিভিটি ফিড আসবে।"
+    },
+    "milestone": {
+      "addTitle": "মাইলস্টোন যোগ",
+      "name": "নাম",
+      "namePlaceholder": "ডিসকভারি শেষ",
+      "description": "বিবরণ",
+      "descriptionPlaceholder": "ঐচ্ছিক প্রসঙ্গ",
+      "dueAt": "টার্গেট তারিখ",
+      "add": "মাইলস্টোন যোগ",
+      "added": "মাইলস্টোন যোগ হয়েছে।",
+      "removed": "মাইলস্টোন সরানো হয়েছে।",
+      "completed": "সম্পন্ন চিহ্নিত।",
+      "uncompleted": "অসম্পূর্ণ চিহ্নিত।",
+      "empty": "এখনো কোনো মাইলস্টোন নেই — কয়েকটি যোগ করুন।",
+      "remove": "মাইলস্টোন সরান",
+      "complete": "সম্পন্ন চিহ্নিত করুন",
+      "uncomplete": "অসম্পূর্ণ চিহ্নিত করুন"
+    }
+  },
   "Settings": {
     "title": "সেটিংস",
     "subtitle": "ওয়ার্কস্পেস, প্রোফাইল এবং টিম কন্ট্রোল।",

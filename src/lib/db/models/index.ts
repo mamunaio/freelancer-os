@@ -27,3 +27,19 @@ export {
   type LeadStage,
   type LeadSource,
 } from "./lead";
+export {
+  Project,
+  PROJECT_STATUSES,
+  type ProjectDoc,
+  type ProjectStatus,
+} from "./project";
+export {
+  ProjectMember,
+  PROJECT_MEMBER_ROLES,
+  type ProjectMemberDoc,
+  type ProjectMemberRole,
+} from "./project-member";
+export {
+  ProjectMilestone,
+  type ProjectMilestoneDoc,
+} from "./project-milestone";

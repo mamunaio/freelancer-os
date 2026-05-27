@@ -286,6 +286,151 @@
       "viewClient": "View client"
     }
   },
+  "Projects": {
+    "title": "Projects",
+    "subtitle": "Delivery work organised by client and status.",
+    "newProject": "New project",
+    "edit": "Edit project",
+    "search": "Search projects…",
+    "view": {
+      "kanban": "Kanban",
+      "list": "List",
+      "timeline": "Timeline"
+    },
+    "stats": {
+      "active": "Active",
+      "completed": "Completed",
+      "onHold": "On hold",
+      "pinned": "Pinned",
+      "budget": "Budget",
+      "billed": "Billed"
+    },
+    "status": {
+      "planning": "Planning",
+      "in_progress": "In progress",
+      "review": "Review",
+      "on_hold": "On hold",
+      "completed": "Completed",
+      "archived": "Archived"
+    },
+    "filter": {
+      "status": "Status",
+      "client": "Client",
+      "anyStatus": "Any status",
+      "anyClient": "Any client",
+      "showArchived": "Show archived",
+      "clear": "Clear"
+    },
+    "empty": {
+      "title": "No projects yet",
+      "subtitle": "Create your first project to start tracking delivery and budgets.",
+      "cta": "Add your first project"
+    },
+    "filtered": {
+      "title": "No projects match",
+      "subtitle": "Try clearing filters or adjusting your search."
+    },
+    "kanban": {
+      "empty": "Empty",
+      "addCard": "Add project"
+    },
+    "card": {
+      "noClient": "No client",
+      "noBudget": "No budget set",
+      "noDueDate": "No due date",
+      "billedOf": "{billed} of {budget}",
+      "daysLeft": "{count, plural, =0 {Due today} =1 {1 day left} other {# days left}}",
+      "daysOverdue": "{count, plural, =1 {1 day overdue} other {# days overdue}}",
+      "members": "{count, plural, =0 {No members} =1 {1 member} other {# members}}"
+    },
+    "form": {
+      "name": "Project name",
+      "namePlaceholder": "e.g. Brand refresh — Lumen",
+      "client": "Client",
+      "clientPlaceholder": "Pick a client",
+      "status": "Status",
+      "description": "Description",
+      "descriptionPlaceholder": "Scope, goals, anything worth pinning here.",
+      "techStack": "Tech stack / tags",
+      "techStackHint": "Press Enter to add. Comma-separated also works.",
+      "techStackPlaceholder": "react, design, retainer",
+      "budget": "Budget",
+      "startedAt": "Started",
+      "dueAt": "Due",
+      "members": "Project members",
+      "membersHint": "Pick a Lead and any contributors. The creator is added as Lead automatically.",
+      "memberRoleLead": "Lead",
+      "memberRoleContributor": "Contributor",
+      "addMember": "Add member",
+      "create": "Create project",
+      "update": "Save changes",
+      "cancel": "Cancel",
+      "created": "Project created.",
+      "updated": "Project updated.",
+      "createFailed": "Couldn't create project.",
+      "updateFailed": "Couldn't save changes."
+    },
+    "actions": {
+      "open": "Open project",
+      "edit": "Edit",
+      "pin": "Pin to top",
+      "unpin": "Unpin",
+      "archive": "Archive",
+      "unarchive": "Unarchive",
+      "delete": "Delete",
+      "deleteConfirmTitle": "Archive {name}?",
+      "deleteConfirmBody": "This archives the project and hides it from listings. Tasks, milestones, and invoices stay in the workspace.",
+      "deleteAction": "Archive project",
+      "cancel": "Cancel",
+      "deleted": "Project archived.",
+      "statusChanged": "Status updated.",
+      "pinned": "Pinned to top.",
+      "unpinned": "Removed pin."
+    },
+    "detail": {
+      "tabs": {
+        "overview": "Overview",
+        "tasks": "Tasks",
+        "milestones": "Milestones",
+        "activity": "Activity"
+      },
+      "section": {
+        "details": "Details",
+        "team": "Team",
+        "budget": "Budget",
+        "timeline": "Timeline",
+        "description": "Description",
+        "noDescription": "No description yet."
+      },
+      "field": {
+        "client": "Client",
+        "status": "Status",
+        "started": "Started",
+        "due": "Due",
+        "completed": "Completed",
+        "techStack": "Tech stack"
+      },
+      "tasksComingSoon": "Tasks ship in the next sub-phase.",
+      "activityComingSoon": "Activity feed lights up once collaboration kicks in."
+    },
+    "milestone": {
+      "addTitle": "Add milestone",
+      "name": "Name",
+      "namePlaceholder": "Discovery wrapped",
+      "description": "Description",
+      "descriptionPlaceholder": "Optional context",
+      "dueAt": "Target date",
+      "add": "Add milestone",
+      "added": "Milestone added.",
+      "removed": "Milestone removed.",
+      "completed": "Marked complete.",
+      "uncompleted": "Marked incomplete.",
+      "empty": "No milestones yet — add a few to set the project's drumbeat.",
+      "remove": "Remove milestone",
+      "complete": "Mark complete",
+      "uncomplete": "Mark incomplete"
+    }
+  },
   "Settings": {
     "title": "Settings",
     "subtitle": "Workspace, profile, and team controls.",

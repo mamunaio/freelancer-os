@@ -127,7 +127,6 @@ export const NAV_GROUPS: NavGroup[] = [
         i18nKey: "projects",
         icon: KanbanSquare,
         visible: showAlways,
-        comingSoon: true,
       },
       {
         id: "tasks",
