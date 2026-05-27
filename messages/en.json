@@ -310,5 +310,65 @@
       "upcoming": "Upcoming this week",
       "upcomingHint": "Calendar strip of tasks, deadlines, meetings, invoices."
     }
+  },
+  "Dashboard": {
+    "demoBadge": "Demo data",
+    "demoNotice": "These figures are illustrative — they swap to live data once the underlying modules ship.",
+    "briefing": {
+      "eyebrow": "Today's briefing",
+      "greeting": "Good morning, {name}",
+      "ctaDeepWork": "Start deep work",
+      "quickCapture": "Quick capture"
+    },
+    "priority": {
+      "title": "What needs you",
+      "subtitle": "Three threads worth your attention right now.",
+      "topTask": "Top task",
+      "urgentDeadline": "Most urgent deadline",
+      "pendingInvoice": "Highest pending invoice",
+      "dueIn": "Due {value}",
+      "daysLeft": "{count, plural, =0 {Today} =1 {1 day left} other {# days left}}",
+      "daysOverdue": "{count, plural, =1 {1 day overdue} other {# days overdue}}",
+      "openTask": "Open task",
+      "openDeadline": "View project",
+      "openInvoice": "Open invoice"
+    },
+    "revenue": {
+      "title": "Revenue and pulse",
+      "subtitle": "Trailing six months versus this month.",
+      "monthToDate": "Month to date",
+      "yearToDate": "Year to date",
+      "vsLastMonth": "{value} vs last month",
+      "income": "Income",
+      "expense": "Expense"
+    },
+    "pulse": {
+      "title": "Activity and AI insights",
+      "activityTitle": "Recent activity",
+      "insightsTitle": "AI insights",
+      "viewAll": "View all"
+    },
+    "stats": {
+      "title": "Quick stats",
+      "activeClients": "Active clients",
+      "activeProjects": "Active projects",
+      "billableHours": "Billable hours",
+      "billableTarget": "of {target} target",
+      "cashPosition": "Cash position",
+      "retainerMrr": "Retainer MRR",
+      "satisfaction": "Client satisfaction",
+      "thisWeek": "This week"
+    },
+    "upcoming": {
+      "title": "Upcoming this week",
+      "today": "Today",
+      "noItems": "Nothing scheduled",
+      "kind": {
+        "task": "Task",
+        "deadline": "Deadline",
+        "meeting": "Meeting",
+        "invoice": "Invoice"
+      }
+    }
   }
 }

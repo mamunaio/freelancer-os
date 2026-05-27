@@ -310,5 +310,65 @@
       "upcoming": "এই সপ্তাহে আসছে",
       "upcomingHint": "টাস্ক, ডেডলাইন, মিটিং, ইনভয়েস এর ক্যালেন্ডার স্ট্রিপ।"
     }
+  },
+  "Dashboard": {
+    "demoBadge": "ডেমো ডেটা",
+    "demoNotice": "এই সংখ্যাগুলো শুধু উদাহরণ — সংশ্লিষ্ট মডিউল লাইভ হলে রিয়েল ডেটা আসবে।",
+    "briefing": {
+      "eyebrow": "আজকের ব্রিফিং",
+      "greeting": "শুভ সকাল, {name}",
+      "ctaDeepWork": "ডিপ ওয়ার্ক শুরু করুন",
+      "quickCapture": "কুইক ক্যাপচার"
+    },
+    "priority": {
+      "title": "আপনার মনোযোগ দরকার",
+      "subtitle": "এখন তিনটি বিষয়ে নজর দেওয়া দরকার।",
+      "topTask": "শীর্ষ টাস্ক",
+      "urgentDeadline": "জরুরি ডেডলাইন",
+      "pendingInvoice": "সর্বোচ্চ পেন্ডিং ইনভয়েস",
+      "dueIn": "ডিউ {value}",
+      "daysLeft": "{count, plural, =0 {আজ} =1 {১ দিন বাকি} other {# দিন বাকি}}",
+      "daysOverdue": "{count, plural, =1 {১ দিন ওভারডিউ} other {# দিন ওভারডিউ}}",
+      "openTask": "টাস্ক খুলুন",
+      "openDeadline": "প্রোজেক্ট দেখুন",
+      "openInvoice": "ইনভয়েস খুলুন"
+    },
+    "revenue": {
+      "title": "রেভিনিউ ও পালস",
+      "subtitle": "সর্বশেষ ছয় মাস বনাম এই মাস।",
+      "monthToDate": "এই মাসে",
+      "yearToDate": "এই বছরে",
+      "vsLastMonth": "গত মাসের চেয়ে {value}",
+      "income": "আয়",
+      "expense": "ব্যয়"
+    },
+    "pulse": {
+      "title": "অ্যাক্টিভিটি ও AI ইনসাইট",
+      "activityTitle": "সাম্প্রতিক অ্যাক্টিভিটি",
+      "insightsTitle": "AI ইনসাইট",
+      "viewAll": "সব দেখুন"
+    },
+    "stats": {
+      "title": "কুইক স্ট্যাটস",
+      "activeClients": "সক্রিয় ক্লায়েন্ট",
+      "activeProjects": "সক্রিয় প্রোজেক্ট",
+      "billableHours": "বিলেবল ঘণ্টা",
+      "billableTarget": "{target} টার্গেট থেকে",
+      "cashPosition": "ক্যাশ পজিশন",
+      "retainerMrr": "রিটেইনার MRR",
+      "satisfaction": "ক্লায়েন্ট সন্তুষ্টি",
+      "thisWeek": "এই সপ্তাহ"
+    },
+    "upcoming": {
+      "title": "এই সপ্তাহে আসছে",
+      "today": "আজ",
+      "noItems": "কিছু শিডিউল নেই",
+      "kind": {
+        "task": "টাস্ক",
+        "deadline": "ডেডলাইন",
+        "meeting": "মিটিং",
+        "invoice": "ইনভয়েস"
+      }
+    }
   }
 }
