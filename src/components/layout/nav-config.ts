@@ -107,7 +107,6 @@ export const NAV_GROUPS: NavGroup[] = [
         i18nKey: "clients",
         icon: Users,
         visible: showAlways, // members see only assigned, but page-level filter handles it
-        comingSoon: true,
       },
       {
         id: "proposals",

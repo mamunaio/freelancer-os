@@ -68,6 +68,116 @@
     "viewRoadmap": "View roadmap",
     "backToDashboard": "Back to dashboard"
   },
+  "Clients": {
+    "title": "Clients",
+    "subtitle": "Active relationships and their pipeline.",
+    "newClient": "New client",
+    "edit": "Edit client",
+    "search": "Search clients…",
+    "empty": {
+      "title": "No clients yet",
+      "subtitle": "Create your first client to start tracking projects, invoices, and revenue.",
+      "cta": "Add your first client"
+    },
+    "filtered": {
+      "title": "No clients match",
+      "subtitle": "Try clearing filters or adjusting your search."
+    },
+    "stats": {
+      "total": "Total",
+      "active": "Active",
+      "paused": "Paused",
+      "archived": "Archived",
+      "lifetimeRevenue": "Lifetime revenue"
+    },
+    "filter": {
+      "status": "Status",
+      "tag": "Tag",
+      "anyStatus": "Any status",
+      "anyTag": "Any tag",
+      "showArchived": "Show archived",
+      "clear": "Clear"
+    },
+    "sort": {
+      "label": "Sort",
+      "recent": "Recently updated",
+      "name": "Name",
+      "revenue": "Revenue"
+    },
+    "status": {
+      "active": "Active",
+      "paused": "Paused",
+      "archived": "Archived"
+    },
+    "card": {
+      "noEmail": "No email",
+      "noCompany": "Independent",
+      "tags": "Tags"
+    },
+    "form": {
+      "name": "Client name",
+      "namePlaceholder": "e.g. Lumen Corp",
+      "company": "Company",
+      "companyPlaceholder": "Optional",
+      "email": "Email",
+      "emailPlaceholder": "client@example.com",
+      "phone": "Phone",
+      "phonePlaceholder": "+1 555 0100",
+      "tags": "Tags",
+      "tagsHint": "Press Enter to add. Comma-separated also works.",
+      "tagsPlaceholder": "retainer, design, priority",
+      "notes": "Notes",
+      "notesPlaceholder": "Anything you want to remember about this client…",
+      "create": "Create client",
+      "update": "Save changes",
+      "cancel": "Cancel",
+      "created": "Client created.",
+      "updated": "Client updated.",
+      "createFailed": "Couldn't create the client.",
+      "updateFailed": "Couldn't save changes."
+    },
+    "actions": {
+      "open": "Open client",
+      "edit": "Edit",
+      "copyPortalLink": "Copy portal link",
+      "portalLinkCopied": "Portal link copied.",
+      "pause": "Pause",
+      "resume": "Resume",
+      "archive": "Archive",
+      "unarchive": "Unarchive",
+      "delete": "Delete",
+      "deleteConfirmTitle": "Delete {name}?",
+      "deleteConfirmBody": "This archives the client and hides it from listings. Their projects, invoices, and history stay in the workspace.",
+      "deleteAction": "Archive client",
+      "cancel": "Cancel",
+      "deleted": "Client archived.",
+      "statusChanged": "Status updated."
+    },
+    "detail": {
+      "tabs": {
+        "overview": "Overview",
+        "projects": "Projects",
+        "money": "Money",
+        "activity": "Activity"
+      },
+      "section": {
+        "contact": "Contact",
+        "tags": "Tags",
+        "notes": "Notes",
+        "noNotes": "No notes yet."
+      },
+      "field": {
+        "company": "Company",
+        "email": "Email",
+        "phone": "Phone",
+        "portal": "Portal token",
+        "createdAt": "Created"
+      },
+      "noProjects": "No projects yet — create one to start tracking work.",
+      "noFinance": "Money trail lights up once you log invoices and finance entries.",
+      "noActivity": "Activity feed lights up once team members start collaborating."
+    }
+  },
   "Settings": {
     "title": "Settings",
     "subtitle": "Workspace, profile, and team controls.",

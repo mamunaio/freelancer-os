@@ -18,3 +18,4 @@ export {
   type InvitationStatus,
 } from "./invitation";
 export { ExchangeRate, type ExchangeRateDoc } from "./exchange-rate";
+export { Client, CLIENT_STATUSES, type ClientDoc, type ClientStatus } from "./client";
