@@ -40,6 +40,7 @@
     "finance": "Finance",
     "invoices": "Invoices",
     "subscriptions": "Subscriptions",
+    "money": "Money",
     "team": "Team",
     "settings": "Settings",
     "readOnly": "read-only",
@@ -772,6 +773,41 @@
     "unauthorized": "You don't have access to this workspace.",
     "notFound": "We couldn't find what you were looking for.",
     "generic": "Something went wrong. Please try again."
+  },
+  "Money": {
+    "title": "Money",
+    "subtitle": "P&L, ledger, invoices, subscriptions — your agency's cashflow in one place.",
+    "tabs": {
+      "overview": "Overview",
+      "ledger": "Ledger",
+      "invoices": "Invoices",
+      "subscriptions": "Subscriptions",
+      "reports": "Reports"
+    },
+    "stub": {
+      "ledger": "Ledger lands in sub-phase 8b — manual income / expense entries with filters and recurring reminders.",
+      "invoices": "Invoices land in sub-phase 8c — line items, share links, PDF export, status tracking.",
+      "subscriptions": "Subscriptions land in sub-phase 8d — retainers with auto-billing on schedule.",
+      "reports": "Reports land in sub-phase 8e — quarterly P&L, 12-month cashflow, CSV / PDF exports."
+    },
+    "overview": {
+      "demoBadge": "Demo data",
+      "demoNotice": "These figures are illustrative — they swap to live data once the ledger is wired in 8b.",
+      "stats": {
+        "net": "Net (this month)",
+        "income": "Income (this month)",
+        "expense": "Expenses (this month)",
+        "outstanding": "Outstanding invoices",
+        "outstandingHint": "{count, plural, =0 {No open invoices} =1 {1 open invoice} other {# open invoices}}",
+        "mrr": "Retainer MRR"
+      },
+      "chart": {
+        "title": "Income vs. expenses",
+        "subtitle": "Trailing six months. Solid is income, dashed is expense.",
+        "income": "Income",
+        "expense": "Expense"
+      }
+    }
   },
   "DashboardCustomize": {
     "title": "Dashboard layout",

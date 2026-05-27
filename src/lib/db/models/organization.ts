@@ -28,6 +28,12 @@ const organizationSchema = new Schema(
     // Money
     baseCurrency: { type: String, enum: ["USD", "BDT"], default: "USD" },
     taxRate: { type: Number, default: 0, min: 0, max: 100 },
+    /**
+     * Prefix for sequential invoice numbers, e.g. "INV-" produces
+     * "INV-0001". Configurable from workspace settings; snapshotted on
+     * each issued invoice so renaming doesn't rewrite history.
+     */
+    invoicePrefix: { type: String, default: "INV-", trim: true, maxlength: 20 },
 
     // Owner shortcut — also tracked via OrgMember.role === "owner" but cached
     // here for fast lookup ("who do I bill?").

@@ -3,7 +3,7 @@ import "server-only";
 import { redirect } from "next/navigation";
 import { auth } from "./config";
 import { connectMongoose } from "@/lib/db/client";
-import { OrgMember, Organization } from "@/lib/db/models";
+import { OrgMember, Organization, User } from "@/lib/db/models";
 import type { OrgRole } from "@/lib/db/models/org-member";
 
 /**
@@ -58,8 +58,15 @@ export interface OrgContext {
 /**
  * Resolves the user's active organization and role.
  *
- * If the user has no active org (just signed up, no membership yet), they're
- * redirected to the onboarding flow.
+ * Resolution order (each step falls through to the next on miss):
+ *   1. The `activeOrgId` stamped on the JWT — fast path.
+ *   2. The user's most recent `OrgMember` row — handles cases where the
+ *      JWT cached a stale or now-deleted org id.
+ *   3. None found — push to the onboarding recovery page.
+ *
+ * When step 2 succeeds we also patch `User.activeOrgId` so subsequent
+ * requests skip the fallback. JWTs eventually rotate and pick up the new
+ * value on the next sign-in.
  */
 export async function requireOrgContext(
   locale: "en" | "bn" = "en",
@@ -68,37 +75,39 @@ export async function requireOrgContext(
 
   await connectMongoose();
 
-  // Pick active org or fall back to the user's most recent membership.
+  const findActiveMembership = async (orgId: string) =>
+    OrgMember.findOne({
+      organizationId: orgId,
+      userId: session.userId,
+      status: "active",
+    }).lean();
+
+  // Step 1 — fast path on the JWT-stamped org id.
   let orgId = session.activeOrgId;
-  if (!orgId) {
-    const membership = await OrgMember.findOne({
+  let member = orgId ? await findActiveMembership(orgId) : null;
+
+  // Step 2 — fall back to the user's most recent membership.
+  if (!member) {
+    const fallback = await OrgMember.findOne({
       userId: session.userId,
       status: "active",
     })
       .sort({ createdAt: -1 })
       .lean();
 
-    if (!membership) {
-      // No org yet — push them through onboarding.
-      redirect(`/${locale}/auth/onboarding`);
+    if (fallback) {
+      orgId = fallback.organizationId.toString();
+      member = fallback;
+      // Self-heal the User record so the next request hits the fast path.
+      await User.updateOne(
+        { _id: session.userId },
+        { activeOrgId: fallback.organizationId },
+      );
     }
-
-    orgId = membership.organizationId.toString();
   }
 
-  if (!orgId) {
-    redirect(`/${locale}/auth/login`);
-  }
-
-  const member = await OrgMember.findOne({
-    organizationId: orgId,
-    userId: session.userId,
-    status: "active",
-  }).lean();
-
-  if (!member) {
-    // They lost access to this org. Bounce to login.
-    redirect(`/${locale}/auth/login`);
+  if (!member || !orgId) {
+    redirect(`/${locale}/auth/onboarding`);
   }
 
   return { session, organizationId: orgId, role: member.role as OrgRole };

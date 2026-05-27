@@ -55,3 +55,16 @@ export {
   type WorkType,
   type EnergyLevel,
 } from "./task";
+
+// ─── Money module (Phase 8) ───
+export { FinanceEntry, type FinanceEntryDoc } from "./finance-entry";
+export { Invoice, INVOICE_STATUSES, type InvoiceDoc, type InvoiceStatus } from "./invoice";
+export {
+  Subscription,
+  SUBSCRIPTION_CYCLES,
+  SUBSCRIPTION_STATUSES,
+  type SubscriptionDoc,
+  type SubscriptionCycle,
+  type SubscriptionStatus,
+} from "./subscription";
+export { NumberSequence, type NumberSequenceDoc } from "./number-sequence";
