@@ -134,7 +134,6 @@ export const NAV_GROUPS: NavGroup[] = [
         i18nKey: "tasks",
         icon: ListChecks,
         visible: showAlways,
-        comingSoon: true,
       },
       {
         id: "time",

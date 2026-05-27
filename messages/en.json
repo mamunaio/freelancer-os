@@ -431,6 +431,136 @@
       "uncomplete": "Mark incomplete"
     }
   },
+  "Tasks": {
+    "title": "Tasks",
+    "subtitle": "Eisenhower matrix and your team's working list.",
+    "newTask": "New task",
+    "edit": "Edit task",
+    "search": "Search tasks…",
+    "view": {
+      "matrix": "Matrix",
+      "list": "List",
+      "myTasks": "My tasks"
+    },
+    "stats": {
+      "open": "Open",
+      "done": "Done",
+      "overdue": "Overdue",
+      "estimateTotal": "Est."
+    },
+    "quadrant": {
+      "q1": "Urgent · Important",
+      "q1Short": "Do now",
+      "q1Hint": "High urgency, high importance — do these today.",
+      "q2": "Not urgent · Important",
+      "q2Short": "Schedule",
+      "q2Hint": "Long-term value. Block focus time for these.",
+      "q3": "Urgent · Not important",
+      "q3Short": "Delegate",
+      "q3Hint": "Demands attention but doesn't move the needle.",
+      "q4": "Not urgent · Not important",
+      "q4Short": "Eliminate",
+      "q4Hint": "Question whether these need to happen at all."
+    },
+    "priority": {
+      "high": "High",
+      "medium": "Medium",
+      "low": "Low"
+    },
+    "workType": {
+      "deep_work": "Deep work",
+      "shallow": "Shallow",
+      "admin": "Admin",
+      "meeting": "Meeting",
+      "creative": "Creative",
+      "review": "Review"
+    },
+    "energy": {
+      "high": "High energy",
+      "medium": "Medium energy",
+      "low": "Low energy"
+    },
+    "filter": {
+      "project": "Project",
+      "assignee": "Assignee",
+      "priority": "Priority",
+      "anyProject": "Any project",
+      "noProject": "No project",
+      "anyAssignee": "Anyone",
+      "me": "Me",
+      "unassigned": "Unassigned",
+      "anyPriority": "Any priority",
+      "showDone": "Show done",
+      "clear": "Clear"
+    },
+    "empty": {
+      "title": "No tasks yet",
+      "subtitle": "Capture work in the matrix to keep urgent and important separate.",
+      "cta": "Add your first task"
+    },
+    "filtered": {
+      "title": "No tasks match",
+      "subtitle": "Try clearing filters or searching differently."
+    },
+    "matrix": {
+      "addInQuadrant": "Add task",
+      "noTasks": "Empty"
+    },
+    "card": {
+      "noProject": "No project",
+      "noAssignee": "Unassigned",
+      "dueIn": "Due {value}",
+      "daysLeft": "{count, plural, =0 {Today} =1 {Tomorrow} other {# days}}",
+      "daysOverdue": "{count, plural, =1 {1 day late} other {# days late}}",
+      "estimate": "{value} min"
+    },
+    "form": {
+      "title": "Title",
+      "titlePlaceholder": "What needs to happen?",
+      "description": "Description",
+      "descriptionPlaceholder": "Optional context, links, sub-steps.",
+      "project": "Project",
+      "noProject": "No project",
+      "assignee": "Assignee",
+      "noAssignee": "Unassigned",
+      "quadrant": "Eisenhower",
+      "priority": "Priority",
+      "workType": "Work type",
+      "energy": "Energy",
+      "estimate": "Estimate",
+      "estimateMinutes": "Minutes",
+      "tags": "Tags",
+      "tagsHint": "Press Enter to add. Comma-separated also works.",
+      "tagsPlaceholder": "research, ux, blocked",
+      "dueAt": "Due date",
+      "create": "Create task",
+      "update": "Save changes",
+      "cancel": "Cancel",
+      "created": "Task created.",
+      "updated": "Task updated.",
+      "createFailed": "Couldn't create task.",
+      "updateFailed": "Couldn't save changes."
+    },
+    "actions": {
+      "open": "Open task",
+      "edit": "Edit",
+      "markDone": "Mark done",
+      "markOpen": "Mark open",
+      "delete": "Delete",
+      "deleteConfirmTitle": "Delete task?",
+      "deleteConfirmBody": "This removes the task from listings. You can recreate it any time.",
+      "deleteAction": "Delete",
+      "cancel": "Cancel",
+      "deleted": "Task deleted.",
+      "completed": "Task marked done.",
+      "uncompleted": "Task reopened.",
+      "moved": "Task moved.",
+      "selected": "{count, plural, =0 {nothing selected} =1 {1 task selected} other {# tasks selected}}",
+      "bulkMarkDone": "Mark done",
+      "bulkMarkOpen": "Reopen",
+      "bulkDelete": "Delete"
+    }
+  },
   "Settings": {
     "title": "Settings",
     "subtitle": "Workspace, profile, and team controls.",

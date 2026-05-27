@@ -431,6 +431,136 @@
       "uncomplete": "অসম্পূর্ণ চিহ্নিত করুন"
     }
   },
+  "Tasks": {
+    "title": "টাস্ক",
+    "subtitle": "Eisenhower ম্যাট্রিক্স এবং টিমের কাজের তালিকা।",
+    "newTask": "নতুন টাস্ক",
+    "edit": "টাস্ক এডিট",
+    "search": "টাস্ক খুঁজুন…",
+    "view": {
+      "matrix": "ম্যাট্রিক্স",
+      "list": "লিস্ট",
+      "myTasks": "আমার টাস্ক"
+    },
+    "stats": {
+      "open": "খোলা",
+      "done": "সম্পন্ন",
+      "overdue": "ওভারডিউ",
+      "estimateTotal": "সময়"
+    },
+    "quadrant": {
+      "q1": "জরুরি · গুরুত্বপূর্ণ",
+      "q1Short": "এখনই করুন",
+      "q1Hint": "জরুরি ও গুরুত্বপূর্ণ — আজই করুন।",
+      "q2": "অজরুরি · গুরুত্বপূর্ণ",
+      "q2Short": "সাজান",
+      "q2Hint": "দীর্ঘমেয়াদে মূল্য। ফোকাস টাইম রাখুন।",
+      "q3": "জরুরি · কম গুরুত্বপূর্ণ",
+      "q3Short": "ডেলিগেট",
+      "q3Hint": "মনোযোগ চায় কিন্তু ফল কম।",
+      "q4": "অজরুরি · কম গুরুত্বপূর্ণ",
+      "q4Short": "বাদ দিন",
+      "q4Hint": "এগুলোর আদৌ দরকার আছে কিনা ভাবুন।"
+    },
+    "priority": {
+      "high": "উচ্চ",
+      "medium": "মধ্যম",
+      "low": "নিম্ন"
+    },
+    "workType": {
+      "deep_work": "ডিপ ওয়ার্ক",
+      "shallow": "শ্যালো",
+      "admin": "অ্যাডমিন",
+      "meeting": "মিটিং",
+      "creative": "ক্রিয়েটিভ",
+      "review": "রিভিউ"
+    },
+    "energy": {
+      "high": "উচ্চ এনার্জি",
+      "medium": "মধ্যম এনার্জি",
+      "low": "নিম্ন এনার্জি"
+    },
+    "filter": {
+      "project": "প্রোজেক্ট",
+      "assignee": "অ্যাসাইনি",
+      "priority": "প্রায়োরিটি",
+      "anyProject": "যেকোনো প্রোজেক্ট",
+      "noProject": "প্রোজেক্ট নেই",
+      "anyAssignee": "যেকোনো",
+      "me": "আমি",
+      "unassigned": "বরাদ্দহীন",
+      "anyPriority": "যেকোনো প্রায়োরিটি",
+      "showDone": "সম্পন্ন দেখান",
+      "clear": "পরিষ্কার"
+    },
+    "empty": {
+      "title": "এখনো কোনো টাস্ক নেই",
+      "subtitle": "ম্যাট্রিক্সে কাজ ক্যাপচার করে জরুরি ও গুরুত্বপূর্ণ আলাদা রাখুন।",
+      "cta": "প্রথম টাস্ক যোগ করুন"
+    },
+    "filtered": {
+      "title": "টাস্ক মেলেনি",
+      "subtitle": "ফিল্টার পরিষ্কার করুন বা সার্চ পরিবর্তন করুন।"
+    },
+    "matrix": {
+      "addInQuadrant": "টাস্ক যোগ",
+      "noTasks": "খালি"
+    },
+    "card": {
+      "noProject": "প্রোজেক্ট নেই",
+      "noAssignee": "বরাদ্দহীন",
+      "dueIn": "ডিউ {value}",
+      "daysLeft": "{count, plural, =0 {আজ} =1 {আগামীকাল} other {# দিন বাকি}}",
+      "daysOverdue": "{count, plural, =1 {১ দিন দেরি} other {# দিন দেরি}}",
+      "estimate": "{value} মিনিট"
+    },
+    "form": {
+      "title": "শিরোনাম",
+      "titlePlaceholder": "কী করতে হবে?",
+      "description": "বিবরণ",
+      "descriptionPlaceholder": "ঐচ্ছিক প্রসঙ্গ, লিঙ্ক, সাব-স্টেপ।",
+      "project": "প্রোজেক্ট",
+      "noProject": "প্রোজেক্ট নেই",
+      "assignee": "অ্যাসাইনি",
+      "noAssignee": "বরাদ্দহীন",
+      "quadrant": "Eisenhower",
+      "priority": "প্রায়োরিটি",
+      "workType": "ওয়ার্ক টাইপ",
+      "energy": "এনার্জি",
+      "estimate": "অনুমান",
+      "estimateMinutes": "মিনিট",
+      "tags": "ট্যাগ",
+      "tagsHint": "যোগ করতে Enter চাপুন। কমা দিয়েও কাজ করে।",
+      "tagsPlaceholder": "রিসার্চ, UX, ব্লকড",
+      "dueAt": "ডিউ ডেট",
+      "create": "টাস্ক তৈরি",
+      "update": "সেভ করুন",
+      "cancel": "বাতিল",
+      "created": "টাস্ক তৈরি হয়েছে।",
+      "updated": "টাস্ক আপডেট হয়েছে।",
+      "createFailed": "টাস্ক তৈরি করতে পারিনি।",
+      "updateFailed": "পরিবর্তন সেভ করতে পারিনি।"
+    },
+    "actions": {
+      "open": "টাস্ক খুলুন",
+      "edit": "এডিট",
+      "markDone": "সম্পন্ন চিহ্নিত",
+      "markOpen": "খোলা চিহ্নিত",
+      "delete": "ডিলিট",
+      "deleteConfirmTitle": "টাস্ক ডিলিট করবেন?",
+      "deleteConfirmBody": "এই অ্যাকশন তালিকা থেকে টাস্ক সরাবে। যেকোনো সময় আবার তৈরি করতে পারবেন।",
+      "deleteAction": "ডিলিট",
+      "cancel": "বাতিল",
+      "deleted": "টাস্ক ডিলিট হয়েছে।",
+      "completed": "টাস্ক সম্পন্ন।",
+      "uncompleted": "টাস্ক আবার খোলা হয়েছে।",
+      "moved": "টাস্ক সরানো হয়েছে।",
+      "selected": "{count, plural, =0 {কিছু সিলেক্ট নেই} other {# টাস্ক সিলেক্ট}}",
+      "bulkMarkDone": "সম্পন্ন চিহ্নিত",
+      "bulkMarkOpen": "আবার খোলা",
+      "bulkDelete": "ডিলিট"
+    }
+  },
   "Settings": {
     "title": "সেটিংস",
     "subtitle": "ওয়ার্কস্পেস, প্রোফাইল এবং টিম কন্ট্রোল।",

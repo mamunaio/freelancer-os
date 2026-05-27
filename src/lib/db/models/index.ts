@@ -43,3 +43,15 @@ export {
   ProjectMilestone,
   type ProjectMilestoneDoc,
 } from "./project-milestone";
+export {
+  Task,
+  TASK_PRIORITIES,
+  TASK_QUADRANTS,
+  WORK_TYPES,
+  ENERGY_LEVELS,
+  type TaskDoc,
+  type TaskPriority,
+  type TaskQuadrant,
+  type WorkType,
+  type EnergyLevel,
+} from "./task";
