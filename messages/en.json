@@ -790,6 +790,109 @@
       "subscriptions": "Subscriptions land in sub-phase 8d — retainers with auto-billing on schedule.",
       "reports": "Reports land in sub-phase 8e — quarterly P&L, 12-month cashflow, CSV / PDF exports."
     },
+    "kind": {
+      "income": "Income",
+      "expense": "Expense"
+    },
+    "ledger": {
+      "title": "Ledger",
+      "subtitle": "Every income and expense rolled up into one place.",
+      "newEntry": "New entry",
+      "search": "Search description or category…",
+      "stats": {
+        "income": "Income",
+        "expense": "Expense",
+        "net": "Net",
+        "deductible": "Tax deductible"
+      },
+      "filter": {
+        "kind": "Kind",
+        "category": "Category",
+        "client": "Client",
+        "project": "Project",
+        "anyKind": "Any kind",
+        "anyCategory": "Any category",
+        "anyClient": "Any client",
+        "noClient": "No client",
+        "anyProject": "Any project",
+        "noProject": "No project",
+        "from": "From",
+        "to": "To",
+        "hideInvoiceSynced": "Hide invoice-synced",
+        "clear": "Clear"
+      },
+      "table": {
+        "date": "Date",
+        "description": "Description",
+        "client": "Client",
+        "project": "Project",
+        "category": "Category",
+        "amount": "Amount",
+        "actions": "Actions",
+        "syncedTooltip": "Synced from invoice {number}. Edit the invoice to change it.",
+        "noClient": "—",
+        "deductibleBadge": "Tax",
+        "recurringBadge": "Recurring"
+      },
+      "empty": {
+        "title": "No entries yet",
+        "subtitle": "Log your first income or expense to start the ledger.",
+        "cta": "Log your first entry"
+      },
+      "filtered": {
+        "title": "No entries match",
+        "subtitle": "Try clearing filters or adjusting the date range."
+      },
+      "actions": {
+        "edit": "Edit",
+        "delete": "Delete",
+        "deleteConfirmTitle": "Delete this entry?",
+        "deleteConfirmBody": "This soft-deletes the row. Reports and totals refresh immediately.",
+        "deleteAction": "Delete",
+        "cancel": "Cancel",
+        "deleted": "Entry deleted.",
+        "reminderDismissed": "Reminder dismissed."
+      },
+      "reminders": {
+        "title": "Recurring entries due to log",
+        "dueRelative": "Due {value}",
+        "dismiss": "I logged it",
+        "logAgain": "Log again",
+        "monthly": "Monthly",
+        "yearly": "Yearly"
+      },
+      "form": {
+        "title": "Log entry",
+        "kind": "Type",
+        "kindIncome": "Income",
+        "kindExpense": "Expense",
+        "category": "Category",
+        "categoryPlaceholder": "Software, Rent, Client billing…",
+        "occurredOn": "Date",
+        "amount": "Amount",
+        "description": "Description",
+        "descriptionPlaceholder": "Optional context",
+        "client": "Client",
+        "noClient": "—",
+        "project": "Project",
+        "noProject": "—",
+        "tax": "Tax deductible",
+        "taxCategory": "Tax category",
+        "taxCategoryPlaceholder": "Office, Travel, Software…",
+        "recurring": "Recurring",
+        "recurringNone": "Not recurring",
+        "recurringMonthly": "Monthly",
+        "recurringYearly": "Yearly",
+        "receipt": "Receipt URL",
+        "receiptHint": "Direct image / PDF URL. R2 upload arrives later.",
+        "create": "Save entry",
+        "update": "Save changes",
+        "cancel": "Cancel",
+        "created": "Entry logged.",
+        "updated": "Entry updated.",
+        "saveFailed": "Couldn't save the entry."
+      }
+    },
     "overview": {
       "demoBadge": "Demo data",
       "demoNotice": "These figures are illustrative — they swap to live data once the ledger is wired in 8b.",

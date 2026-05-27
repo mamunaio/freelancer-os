@@ -3,7 +3,6 @@ import {
   ArrowUpRight,
   Receipt,
   Repeat2,
-  Sparkles,
   TrendingUp,
   Wallet,
 } from "lucide-react";
@@ -13,7 +12,7 @@ import { requireOrgContext } from "@/lib/auth/session";
 import { Money } from "@/components/money/money";
 import { OverviewChart } from "@/components/money/overview-chart";
 import { StatTile } from "@/components/money/stat-tile";
-import { buildMoneyOverviewDemo } from "@/features/money/overview/demo-data";
+import { getMoneyOverview } from "@/features/money/ledger/queries";
 import { hasLocale, type Locale } from "@/i18n/routing";
 
 interface PageProps {
@@ -21,41 +20,29 @@ interface PageProps {
 }
 
 /**
- * Money → Overview (sub-phase 8a).
+ * Money → Overview.
  *
- * Renders KPI tiles + the income/expense chart against demo numbers.
- * The numbers are deterministic (anchored to `now`) so screenshots stay
- * stable across runs. 8b replaces this with `getMoneyOverview()` reading
- * from MongoDB.
+ * Reads live finance data via `getMoneyOverview()`. Outstanding invoices
+ * and retainer MRR are still 0 until 8c/8d ship — that's intentional,
+ * `getMoneyOverview` will start populating those once the relevant
+ * queries land.
  */
 export default async function MoneyOverviewPage({ params }: PageProps) {
   const { locale } = await params;
   const safeLocale: Locale = hasLocale(locale) ? locale : "en";
   setRequestLocale(safeLocale);
 
-  // Permission already enforced by the layout — re-derive only for the
-  // role-aware copy below if we need it later.
-  await requireOrgContext(safeLocale);
+  const ctx = await requireOrgContext(safeLocale);
 
   const t = await getTranslations({
     locale: safeLocale,
     namespace: "Money.overview",
   });
 
-  const data = buildMoneyOverviewDemo(new Date());
+  const data = await getMoneyOverview(ctx.organizationId);
 
   return (
     <div className="space-y-5">
-      <div className="flex items-start gap-2.5 rounded-lg border border-[hsl(var(--info))]/30 bg-[hsl(var(--info))]/8 px-3 py-2 text-[11px] text-[hsl(var(--info))]">
-        <Sparkles className="mt-0.5 h-3 w-3 shrink-0" />
-        <p>
-          <span className="font-semibold">{t("demoBadge")}.</span>{" "}
-          <span className="text-[hsl(var(--foreground))]/80">
-            {t("demoNotice")}
-          </span>
-        </p>
-      </div>
-
       <section className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-5">
         <StatTile
           icon={Wallet}

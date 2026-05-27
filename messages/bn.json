@@ -790,6 +790,109 @@
       "subscriptions": "সাবস্ক্রিপশন আসছে ৮ডি সাব-ফেজে — অটো-বিলিং সহ রিটেইনার।",
       "reports": "রিপোর্ট আসছে ৮ই সাব-ফেজে — কোয়ার্টারলি পি অ্যান্ড এল, ১২-মাসের ক্যাশফ্লো, CSV / PDF এক্সপোর্ট।"
     },
+    "kind": {
+      "income": "আয়",
+      "expense": "ব্যয়"
+    },
+    "ledger": {
+      "title": "লেজার",
+      "subtitle": "প্রতিটি আয় ও ব্যয় এক জায়গায়।",
+      "newEntry": "নতুন এন্ট্রি",
+      "search": "বিবরণ বা ক্যাটাগরি খুঁজুন…",
+      "stats": {
+        "income": "আয়",
+        "expense": "ব্যয়",
+        "net": "নেট",
+        "deductible": "ট্যাক্স ডিডাক্টিবল"
+      },
+      "filter": {
+        "kind": "ধরন",
+        "category": "ক্যাটাগরি",
+        "client": "ক্লায়েন্ট",
+        "project": "প্রোজেক্ট",
+        "anyKind": "যেকোনো ধরন",
+        "anyCategory": "যেকোনো ক্যাটাগরি",
+        "anyClient": "যেকোনো ক্লায়েন্ট",
+        "noClient": "ক্লায়েন্ট নেই",
+        "anyProject": "যেকোনো প্রোজেক্ট",
+        "noProject": "প্রোজেক্ট নেই",
+        "from": "থেকে",
+        "to": "পর্যন্ত",
+        "hideInvoiceSynced": "ইনভয়েস-সিঙ্ক্ড লুকান",
+        "clear": "ক্লিয়ার"
+      },
+      "table": {
+        "date": "তারিখ",
+        "description": "বিবরণ",
+        "client": "ক্লায়েন্ট",
+        "project": "প্রোজেক্ট",
+        "category": "ক্যাটাগরি",
+        "amount": "অর্থ",
+        "actions": "অ্যাকশন",
+        "syncedTooltip": "ইনভয়েস {number} থেকে সিঙ্ক্ড। পরিবর্তন করতে ইনভয়েসটি এডিট করুন।",
+        "noClient": "—",
+        "deductibleBadge": "ট্যাক্স",
+        "recurringBadge": "রিকারিং"
+      },
+      "empty": {
+        "title": "এখনো কোনো এন্ট্রি নেই",
+        "subtitle": "লেজার শুরু করতে প্রথম আয় বা ব্যয় লগ করুন।",
+        "cta": "প্রথম এন্ট্রি লগ করুন"
+      },
+      "filtered": {
+        "title": "কোনো এন্ট্রি মিলছে না",
+        "subtitle": "ফিল্টার ক্লিয়ার করুন বা তারিখের রেঞ্জ বদলে দেখুন।"
+      },
+      "actions": {
+        "edit": "এডিট",
+        "delete": "ডিলিট",
+        "deleteConfirmTitle": "এই এন্ট্রি ডিলিট করবেন?",
+        "deleteConfirmBody": "এটি সফট-ডিলিট করে। রিপোর্ট ও মোট সঙ্গে সঙ্গে রিফ্রেশ হবে।",
+        "deleteAction": "ডিলিট",
+        "cancel": "বাতিল",
+        "deleted": "এন্ট্রি ডিলিট হয়েছে।",
+        "reminderDismissed": "রিমাইন্ডার ডিসমিস হয়েছে।"
+      },
+      "reminders": {
+        "title": "রিকারিং এন্ট্রি লগ করার সময়",
+        "dueRelative": "ডিউ {value}",
+        "dismiss": "লগ করেছি",
+        "logAgain": "আবার লগ করুন",
+        "monthly": "মাসিক",
+        "yearly": "বার্ষিক"
+      },
+      "form": {
+        "title": "এন্ট্রি লগ করুন",
+        "kind": "ধরন",
+        "kindIncome": "আয়",
+        "kindExpense": "ব্যয়",
+        "category": "ক্যাটাগরি",
+        "categoryPlaceholder": "সফটওয়্যার, ভাড়া, ক্লায়েন্ট বিলিং…",
+        "occurredOn": "তারিখ",
+        "amount": "অর্থ",
+        "description": "বিবরণ",
+        "descriptionPlaceholder": "ঐচ্ছিক বিস্তারিত",
+        "client": "ক্লায়েন্ট",
+        "noClient": "—",
+        "project": "প্রোজেক্ট",
+        "noProject": "—",
+        "tax": "ট্যাক্স ডিডাক্টিবল",
+        "taxCategory": "ট্যাক্স ক্যাটাগরি",
+        "taxCategoryPlaceholder": "অফিস, ট্রাভেল, সফটওয়্যার…",
+        "recurring": "রিকারিং",
+        "recurringNone": "রিকারিং নয়",
+        "recurringMonthly": "মাসিক",
+        "recurringYearly": "বার্ষিক",
+        "receipt": "রিসিপ্ট URL",
+        "receiptHint": "ইমেজ / PDF ডিরেক্ট লিঙ্ক। R2 আপলোড পরে আসবে।",
+        "create": "এন্ট্রি সেভ করুন",
+        "update": "পরিবর্তন সেভ করুন",
+        "cancel": "বাতিল",
+        "created": "এন্ট্রি লগ হয়েছে।",
+        "updated": "এন্ট্রি আপডেট হয়েছে।",
+        "saveFailed": "এন্ট্রি সেভ করতে পারিনি।"
+      }
+    },
     "overview": {
       "demoBadge": "ডেমো ডেটা",
       "demoNotice": "এই সংখ্যাগুলো শুধু উদাহরণ — ৮বি সাব-ফেজে লেজার চালু হলে রিয়েল ডেটা আসবে।",
