@@ -562,6 +562,25 @@
       "bulkDelete": "Delete"
     }
   },
+  "MyWork": {
+    "title": "Home",
+    "searchPlaceholder": "Search tasks...",
+    "newTask": "New Task",
+    "myLineup": "My Lineup",
+    "startTimer": "Start Timer",
+    "emptyLineupTitle": "Your Lineup is empty",
+    "emptyLineupDesc": "Go to My Work and click the Pin icon on any task to add it here!",
+    "inbox": "Inbox",
+    "markAllRead": "Mark all read",
+    "activeLineup": "My Pinned Lineup",
+    "overdue": "Overdue",
+    "today": "Today",
+    "next": "Next",
+    "comingSoon": "Coming in a later phase",
+    "dedicatedLineupView": "Your dedicated Lineup view",
+    "calendarView": "Your Calendar view",
+    "mentionsView": "Your Mentions & Comments"
+  },
   "Settings": {
     "title": "Settings",
     "subtitle": "Workspace, profile, and team controls.",

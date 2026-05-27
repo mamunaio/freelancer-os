@@ -23,8 +23,6 @@ const eslintConfig = [
   },
   {
     ignores: [
-      "_node_modules_old/**",
-      "_backup_assets/**",
       ".next/**",
       "next-env.d.ts",
     ],

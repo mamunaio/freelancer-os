@@ -1,0 +1,237 @@
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// ==========================================
+// ENUMS
+// ==========================================
+
+enum UserRole {
+  SUPER_ADMIN
+  ADMIN
+  MANAGER
+  MEMBER
+}
+
+enum TaskStatus {
+  TODO
+  IN_PROGRESS
+  REVIEW
+  DONE
+}
+
+enum TaskUrgency {
+  URGENT
+  NOT_URGENT
+}
+
+enum TaskImportance {
+  IMPORTANT
+  NOT_IMPORTANT
+}
+
+enum TransactionType {
+  INCOME
+  EXPENSE
+}
+
+enum InvoiceStatus {
+  DRAFT
+  SENT
+  PAID
+  OVERDUE
+  CANCELLED
+}
+
+// ==========================================
+// MODELS
+// ==========================================
+
+model User {
+  id            String      @id @default(auto()) @map("_id") @db.ObjectId
+  name          String
+  email         String      @unique
+  passwordHash  String      @map("password_hash")
+  role          UserRole    @default(MEMBER)
+  preferences   Json?       // e.g., {"theme": "dark", "sidebarCollapsed": false}
+  
+  // Relations
+  workspaceId   String      @map("workspace_id") @db.ObjectId
+  workspace     Workspace   @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  assignedTasks Task[]      @relation("TaskAssignee")
+  createdTasks  Task[]      @relation("TaskCreator")
+
+  createdAt     DateTime    @default(now()) @map("created_at")
+  updatedAt     DateTime    @updatedAt @map("updated_at")
+
+  @@map("users")
+}
+
+model Workspace {
+  id           String        @id @default(auto()) @map("_id") @db.ObjectId
+  name         String
+  tagline      String?
+  logoUrl      String?       @map("logo_url")
+  accentColor  String        @default("226 100% 65%") @map("accent_color") // HSL Format
+  baseCurrency String        @default("USD") @map("base_currency")
+  taxRate      Float         @default(0.00) @map("tax_rate")
+  
+  // Relations
+  users        User[]
+  projects     Project[]
+  clients      Client[]
+  invoices     Invoice[]
+  transactions Transaction[]
+  leads        Lead[]
+
+  createdAt    DateTime      @default(now()) @map("created_at")
+  updatedAt    DateTime      @updatedAt @map("updated_at")
+
+  @@map("workspaces")
+}
+
+model Project {
+  id           String        @id @default(auto()) @map("_id") @db.ObjectId
+  name         String
+  description  String?
+  
+  // Relations
+  workspaceId  String        @map("workspace_id") @db.ObjectId
+  workspace    Workspace     @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  clientId     String?       @map("client_id") @db.ObjectId
+  client       Client?       @relation(fields: [clientId], references: [id], onDelete: SetNull)
+  tasks        Task[]
+  transactions Transaction[]
+
+  createdAt    DateTime      @default(now()) @map("created_at")
+  updatedAt    DateTime      @updatedAt @map("updated_at")
+
+  @@map("projects")
+}
+
+model Client {
+  id           String        @id @default(auto()) @map("_id") @db.ObjectId
+  name         String
+  email        String?
+  company      String?
+  
+  // Relations
+  workspaceId  String        @map("workspace_id") @db.ObjectId
+  workspace    Workspace     @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  projects     Project[]
+  invoices     Invoice[]
+  transactions Transaction[]
+
+  createdAt    DateTime      @default(now()) @map("created_at")
+  updatedAt    DateTime      @updatedAt @map("updated_at")
+
+  @@map("clients")
+}
+
+model Task {
+  id          String         @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  description String?
+  status      TaskStatus     @default(TODO)
+  
+  // Eisenhower Matrix Layout Fields
+  urgency     TaskUrgency    @default(NOT_URGENT)
+  importance  TaskImportance @default(IMPORTANT)
+  dueAt       DateTime?      @map("due_date")
+  
+  // Relations
+  projectId   String?        @map("project_id") @db.ObjectId
+  project     Project?       @relation(fields: [projectId], references: [id], onDelete: SetNull)
+  assigneeId  String?        @map("assignee_id") @db.ObjectId
+  assignee    User?          @relation("TaskAssignee", fields: [assigneeId], references: [id], onDelete: SetNull)
+  creatorId   String?        @map("creator_id") @db.ObjectId
+  creator     User?          @relation("TaskCreator", fields: [creatorId], references: [id], onDelete: SetNull)
+
+  createdAt   DateTime       @default(now()) @map("created_at")
+  updatedAt   DateTime       @updatedAt @map("updated_at")
+
+  @@map("tasks")
+}
+
+model Transaction {
+  id          String          @id @default(auto()) @map("_id") @db.ObjectId
+  type        TransactionType
+  amount      Float
+  category    String          // e.g., "Software", "Consulting Fee"
+  date        DateTime        @default(now())
+  
+  // Relations
+  workspaceId String          @map("workspace_id") @db.ObjectId
+  workspace   Workspace       @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  projectId   String?         @map("reference_project_id") @db.ObjectId
+  project     Project?        @relation(fields: [projectId], references: [id], onDelete: SetNull)
+  clientId    String?         @map("reference_client_id") @db.ObjectId
+  client      Client?         @relation(fields: [clientId], references: [id], onDelete: SetNull)
+  invoiceId   String?         @map("invoice_id") @db.ObjectId
+  invoice     Invoice?        @relation(fields: [invoiceId], references: [id], onDelete: SetNull)
+
+  createdAt   DateTime        @default(now()) @map("created_at")
+  updatedAt   DateTime        @updatedAt @map("updated_at")
+
+  @@map("transactions")
+}
+
+model Invoice {
+  id            String        @id @default(auto()) @map("_id") @db.ObjectId
+  invoiceNumber String        @unique @map("invoice_number")
+  status        InvoiceStatus @default(DRAFT)
+  totalAmount   Float         @map("total_amount")
+  dueAt         DateTime      @map("due_date")
+  lineItems     Json          // Array of objects: [{"desc": "Services", "qty": 1, "rate": 500}]
+  
+  // Relations
+  workspaceId   String        @map("workspace_id") @db.ObjectId
+  workspace     Workspace     @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  clientId      String        @map("client_id") @db.ObjectId
+  client        Client        @relation(fields: [clientId], references: [id], onDelete: Restrict)
+  transactions  Transaction[]
+
+  createdAt     DateTime      @default(now()) @map("created_at")
+  updatedAt     DateTime      @updatedAt @map("updated_at")
+
+  @@map("invoices")
+}
+
+enum LeadStage {
+  NEW
+  CONTACTED
+  PROPOSAL_SENT
+  NEGOTIATION
+  WON
+  LOST
+}
+
+model Lead {
+  id                  String     @id @default(auto()) @map("_id") @db.ObjectId
+  companyName         String     @map("company_name")
+  contactPerson       String     @map("contact_person")
+  email               String?
+  status              LeadStage  @default(NEW)
+  
+  // Enrichment fields
+  websiteUrl          String?    @map("website_url")
+  industryNiche       String?    @map("industry_niche")
+  proposalDocumentUrl String?    @map("proposal_document_url")
+  pipelineValue       Float?     @map("pipeline_value")
+
+  // Date fields
+  createdAt           DateTime   @default(now()) @map("created_at")
+  lastContactedAt     DateTime?  @map("last_contacted_at")
+  nextFollowUpDate    DateTime?  @map("next_follow_up_date")
+
+  // Relations
+  workspaceId         String     @map("workspace_id") @db.ObjectId
+  workspace           Workspace  @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+
+  @@map("leads")
+}
