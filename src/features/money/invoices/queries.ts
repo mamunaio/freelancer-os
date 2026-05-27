@@ -229,14 +229,24 @@ function buildInvoiceQuery(
   return query;
 }
 
-async function hydrateInvoices(docs: any[]): Promise<InvoiceRow[]> {
+async function hydrateInvoices(
+  docs: Array<Record<string, unknown>>,
+): Promise<InvoiceRow[]> {
   const clientIds = unique(
-    docs.map((d) => d.clientId?.toString()).filter(Boolean),
+    docs
+      .map((d) => {
+        const cid = d.clientId as { toString(): string } | undefined;
+        return cid?.toString();
+      })
+      .filter(Boolean) as string[],
   );
   const projectIds = unique(
     docs
-      .map((d) => d.projectId?.toString())
-      .filter(Boolean),
+      .map((d) => {
+        const pid = d.projectId as { toString(): string } | undefined | null;
+        return pid?.toString();
+      })
+      .filter(Boolean) as string[],
   );
 
   const [clients, projects] = await Promise.all([
@@ -263,48 +273,66 @@ async function hydrateInvoices(docs: any[]): Promise<InvoiceRow[]> {
   );
 
   return docs.map((d) => {
-    const id = d._id.toString();
-    const clientId = d.clientId ? d.clientId.toString() : "";
-    const projectId = d.projectId ? d.projectId.toString() : null;
-    const subscriptionId = d.subscriptionId ? d.subscriptionId.toString() : null;
+    const doc = d as Record<string, unknown>;
+    const id = (doc._id as { toString(): string }).toString();
+    const clientId = doc.clientId
+      ? (doc.clientId as { toString(): string }).toString()
+      : "";
+    const projectId = doc.projectId
+      ? (doc.projectId as { toString(): string }).toString()
+      : null;
+    const subscriptionId = doc.subscriptionId
+      ? (doc.subscriptionId as { toString(): string }).toString()
+      : null;
 
     return {
       id,
-      number: String(d.number ?? ""),
-      prefix: String(d.prefix ?? ""),
-      sequence: Number(d.sequence ?? 0),
+      number: String(doc.number ?? ""),
+      prefix: String(doc.prefix ?? ""),
+      sequence: Number(doc.sequence ?? 0),
       clientId,
       clientLabel: clientMap.get(clientId) ?? null,
       projectId,
       projectLabel: projectId ? projectMap.get(projectId) ?? null : null,
       subscriptionId,
-      status: d.status,
-      issueDate: new Date(d.issueDate).toISOString(),
-      dueDate: new Date(d.dueDate).toISOString(),
-      sentAt: d.sentAt ? new Date(d.sentAt).toISOString() : null,
-      viewedAt: d.viewedAt ? new Date(d.viewedAt).toISOString() : null,
-      paidDate: d.paidDate ? new Date(d.paidDate).toISOString() : null,
-      voidedAt: d.voidedAt ? new Date(d.voidedAt).toISOString() : null,
-      items: (d.items ?? []).map((item: any) => ({
-        description: String(item.description ?? ""),
-        quantity: Number(item.quantity ?? 0),
-        unitPrice: Number(item.unitPrice ?? 0),
-        lineTotal: Number(item.lineTotal ?? 0),
-      })),
-      taxRateOverride: d.taxRateOverride !== null ? Number(d.taxRateOverride) : null,
-      subtotal: Number(d.subtotal ?? 0),
-      tax: Number(d.tax ?? 0),
-      total: Number(d.total ?? 0),
-      currency: d.currency,
-      totalUsd: Number(d.totalUsd ?? 0),
-      exchangeRate: Number(d.exchangeRate ?? 1),
-      rateDate: String(d.rateDate ?? ""),
-      notes: d.notes ?? null,
-      terms: d.terms ?? null,
-      shareToken: String(d.shareToken ?? ""),
-      createdBy: d.createdBy ? d.createdBy.toString() : null,
-      createdAt: new Date(d.createdAt).toISOString(),
-      updatedAt: new Date(d.updatedAt).toISOString(),
+      status: doc.status as InvoiceRow["status"],
+      issueDate: new Date(doc.issueDate as Date).toISOString(),
+      dueDate: new Date(doc.dueDate as Date).toISOString(),
+      sentAt: doc.sentAt ? new Date(doc.sentAt as Date).toISOString() : null,
+      viewedAt: doc.viewedAt
+        ? new Date(doc.viewedAt as Date).toISOString()
+        : null,
+      paidDate: doc.paidDate
+        ? new Date(doc.paidDate as Date).toISOString()
+        : null,
+      voidedAt: doc.voidedAt
+        ? new Date(doc.voidedAt as Date).toISOString()
+        : null,
+      items: ((doc.items ?? []) as Array<Record<string, unknown>>).map(
+        (item) => ({
+          description: String(item.description ?? ""),
+          quantity: Number(item.quantity ?? 0),
+          unitPrice: Number(item.unitPrice ?? 0),
+          lineTotal: Number(item.lineTotal ?? 0),
+        }),
+      ),
+      taxRateOverride:
+        doc.taxRateOverride !== null ? Number(doc.taxRateOverride) : null,
+      subtotal: Number(doc.subtotal ?? 0),
+      tax: Number(doc.tax ?? 0),
+      total: Number(doc.total ?? 0),
+      currency: doc.currency as InvoiceRow["currency"],
+      totalUsd: Number(doc.totalUsd ?? 0),
+      exchangeRate: Number(doc.exchangeRate ?? 1),
+      rateDate: String(doc.rateDate ?? ""),
+      notes: (doc.notes as string | null) ?? null,
+      terms: (doc.terms as string | null) ?? null,
+      shareToken: String(doc.shareToken ?? ""),
+      createdBy: doc.createdBy
+        ? (doc.createdBy as { toString(): string }).toString()
+        : null,
+      createdAt: new Date(doc.createdAt as Date).toISOString(),
+      updatedAt: new Date(doc.updatedAt as Date).toISOString(),
     };
   });
 }

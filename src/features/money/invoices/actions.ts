@@ -280,7 +280,7 @@ export async function markInvoicePaidAction(
   }
 
   // Create a synced FinanceEntry.
-  const entry = await FinanceEntry.create({
+  await FinanceEntry.create({
     organizationId: ctx.organizationId,
     kind: "income",
     category: "Invoice Payment",
