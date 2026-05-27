@@ -1,6 +1,5 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
 import type { ReactNode } from "react";
 
 import { usePathname } from "@/i18n/navigation";
@@ -8,27 +7,28 @@ import { usePathname } from "@/i18n/navigation";
 /**
  * Soft fade-up between pages.
  *
- * The motion wrapper is always rendered so the server and client agree on
- * the DOM tree (avoids hydration mismatches caused by `useReducedMotion()`
- * returning `null` server-side and a boolean after mount). When reduced
- * motion is preferred, we just skip the entrance animation by passing
- * `initial={false}` and zeroing the duration.
+ * Uses a CSS keyframe (defined in globals.css as `fade-up`) instead of
+ * framer-motion. CSS animations are deterministic between server-render and
+ * client-hydration, while `useReducedMotion()` returns different values on
+ * each side and was causing hydration drift that cascaded into Radix
+ * `useId()` mismatches downstream.
+ *
+ * `motion-safe:` honours `prefers-reduced-motion` automatically — when the
+ * user prefers reduced motion, the animation class is dropped entirely and
+ * the page just renders in its final state.
+ *
+ * The `key` on the wrapping div forces a remount on pathname change so the
+ * animation re-runs for each navigation.
  */
 export function PageTransition({ children }: { children: ReactNode }) {
   const pathname = usePathname();
-  const reduce = useReducedMotion();
 
   return (
-    <motion.div
+    <div
       key={pathname}
-      initial={reduce ? false : { opacity: 0, y: 6 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{
-        duration: reduce ? 0 : 0.32,
-        ease: [0.22, 1, 0.36, 1],
-      }}
+      className="motion-safe:animate-[fade-up_320ms_var(--ease-out-quint)_both]"
     >
       {children}
-    </motion.div>
+    </div>
   );
 }
