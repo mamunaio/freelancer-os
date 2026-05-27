@@ -6,6 +6,7 @@ import { connectMongoose } from "@/lib/db/client";
 import {
   Client,
   FinanceEntry,
+  Invoice,
   Project,
   type FinanceEntryDoc,
 } from "@/lib/db/models";
@@ -269,9 +270,26 @@ export async function getMoneyOverview(
     },
   ]);
 
-  const [monthAgg, seriesAgg] = await Promise.all([
+  const [monthAgg, seriesAgg, outstandingAgg] = await Promise.all([
     monthAggPromise,
     seriesAggPromise,
+    // Outstanding invoices — sent/viewed status only.
+    Invoice.aggregate([
+      {
+        $match: {
+          organizationId: orgId,
+          deletedAt: null,
+          status: { $in: ["sent", "viewed"] },
+        },
+      },
+      {
+        $group: {
+          _id: null,
+          count: { $sum: 1 },
+          usd: { $sum: "$totalUsd" },
+        },
+      },
+    ]),
   ]);
 
   let monthIncome = 0;
@@ -306,13 +324,15 @@ export async function getMoneyOverview(
     else if (row._id.kind === "expense") series[idx].expense = round(row.usd);
   }
 
+  const outstanding = (outstandingAgg as Array<{ count: number; usd: number }>)[0];
+
   return {
     monthIncome: round(monthIncome),
     monthExpense: round(monthExpense),
     monthNet: round(monthIncome - monthExpense),
-    // Phase 8c will populate these from invoices + subscriptions.
-    outstandingInvoicesUsd: 0,
-    outstandingInvoicesCount: 0,
+    outstandingInvoicesUsd: round(outstanding?.usd ?? 0),
+    outstandingInvoicesCount: outstanding?.count ?? 0,
+    // Phase 8d will populate MRR from subscriptions.
     retainerMrrUsd: 0,
     series,
   };

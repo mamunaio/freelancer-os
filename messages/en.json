@@ -910,6 +910,97 @@
         "income": "Income",
         "expense": "Expense"
       }
+    },
+    "invoices": {
+      "title": "Invoices",
+      "subtitle": "Billable documents sent to clients.",
+      "newInvoice": "New invoice",
+      "edit": "Edit invoice",
+      "search": "Search invoices…",
+      "stats": {
+        "total": "Total",
+        "draft": "Draft",
+        "sent": "Sent",
+        "paid": "Paid",
+        "overdue": "Overdue",
+        "outstanding": "Outstanding"
+      },
+      "status": {
+        "draft": "Draft",
+        "sent": "Sent",
+        "viewed": "Viewed",
+        "paid": "Paid",
+        "void": "Void",
+        "overdue": "Overdue"
+      },
+      "filter": {
+        "status": "Status",
+        "client": "Client",
+        "project": "Project",
+        "anyStatus": "Any status",
+        "anyClient": "Any client",
+        "anyProject": "Any project",
+        "noProject": "No project",
+        "from": "From",
+        "to": "To",
+        "clear": "Clear"
+      },
+      "empty": {
+        "title": "No invoices yet",
+        "subtitle": "Create your first invoice to start billing clients.",
+        "cta": "Create invoice"
+      },
+      "filtered": {
+        "title": "No invoices match",
+        "subtitle": "Try clearing filters or adjusting your search."
+      },
+      "form": {
+        "client": "Client",
+        "project": "Project",
+        "noProject": "—",
+        "issueDate": "Issue date",
+        "dueDate": "Due date",
+        "items": "Line items",
+        "addItem": "Add line item",
+        "itemDescription": "Description",
+        "itemQuantity": "Qty",
+        "itemUnitPrice": "Unit price",
+        "itemLineTotal": "Total",
+        "currency": "Currency",
+        "taxRateOverride": "Tax rate override",
+        "taxRateHint": "Leave empty to use workspace default.",
+        "notes": "Notes",
+        "notesPlaceholder": "Payment instructions, thank you note…",
+        "terms": "Terms",
+        "termsPlaceholder": "Net 30, late fees…",
+        "create": "Create invoice",
+        "update": "Save changes",
+        "cancel": "Cancel",
+        "created": "Invoice created.",
+        "updated": "Invoice updated.",
+        "saveFailed": "Couldn't save the invoice."
+      },
+      "actions": {
+        "send": "Send invoice",
+        "markPaid": "Mark paid",
+        "markUnpaid": "Mark unpaid",
+        "void": "Void invoice",
+        "regenerateToken": "Regenerate share link",
+        "paidDate": "Paid date",
+        "paidDateHint": "When the client paid.",
+        "sent": "Invoice sent.",
+        "paid": "Invoice marked paid.",
+        "unpaid": "Invoice marked unpaid.",
+        "voided": "Invoice voided.",
+        "tokenRegenerated": "Share link regenerated.",
+        "sendConfirmTitle": "Send this invoice?",
+        "sendConfirmBody": "This marks it sent and makes it visible to the client via the share link.",
+        "sendAction": "Send",
+        "voidConfirmTitle": "Void this invoice?",
+        "voidConfirmBody": "This cancels the invoice and removes any synced ledger entry.",
+        "voidAction": "Void",
+        "cancel": "Cancel"
+      }
     }
   },
   "DashboardCustomize": {
