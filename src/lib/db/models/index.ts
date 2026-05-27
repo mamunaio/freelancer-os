@@ -17,3 +17,4 @@ export {
   type InvitationDoc,
   type InvitationStatus,
 } from "./invitation";
+export { ExchangeRate, type ExchangeRateDoc } from "./exchange-rate";
